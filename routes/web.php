@@ -5,6 +5,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\BlogsController;
 
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\ProjectsController as AdminProjectsController;
+use App\Http\Controllers\Admin\BlogsController as AdminBlogsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,15 +27,22 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 
 // projects
-Route::resource('/projects', ProjectsController::class)->except(['update', 'delete']);
-Route::post('projects/destroy', [ProjectsController::class, 'destroy'])
-->name('projects.destroy');
-Route::post('projects/update', [ProjectsController::class, 'update'])
-->name('projects.update');
+Route::resource('/projects', ProjectsController::class);
 
 // blogs
-Route::resource('/blogs', BlogsController::class)->except(['update', 'delete']);
-Route::post('blogs/destroy', [BlogsController::class, 'destroy'])
-->name('blogs.destroy');
-Route::post('blogs/update', [BlogsController::class, 'update'])
-->name('blogs.update');
+Route::resource('/blogs', BlogsController::class);
+
+
+// admin routes
+Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin.index');
+Route::get('/admin/settings', [AdminHomeController::class, 'settings'])->name('admin.settings');
+
+Route::get('/admin/login', [AdminAuthController::class, 'index'])->name('admin.login');
+
+Route::resource('/admin/projects', ProjectsController::class)->except(['update', 'delete']);
+Route::post('/admin/projects/destroy', [ProjectsController::class, 'destroy'])->name('projects.destroy');
+Route::post('/admin/projects/update', [ProjectsController::class, 'update'])->name('projects.update');
+
+Route::resource('/admin/blogs', BlogsController::class)->except(['update', 'delete']);
+Route::post('/admin/blogs/destroy', [BlogsController::class, 'destroy'])->name('blogs.destroy');
+Route::post('/admin/blogs/update', [BlogsController::class, 'update'])->name('blogs.update');
