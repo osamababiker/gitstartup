@@ -11,20 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('en_title');
-            $table->string('ar_title');
-            $table->string('image');
-            $table->text('en_description');
-            $table->text('ar_escription');
+            $table->string('enName');
+            $table->string('arName');
+            $table->unsignedBigInteger('subOf')->nullable();
 
-            $table->unsignedBigInteger('sub_of');
-            $table->foreign('sub_of')
+            $table->foreign('subOf')
                 ->references('id')
                 ->on('categories')
                 ->onDelete('cascade');
-
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
@@ -35,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('categories');
     }
 };

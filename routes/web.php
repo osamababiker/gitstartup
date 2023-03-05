@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\LangController;
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
@@ -21,6 +22,18 @@ use App\Http\Controllers\Admin\BlogsController as AdminBlogsController;
 |
 */
 
+
+
+Route::post('lang/change', [LangController::class, 'change'])->name('changeLang');
+
+Route::get('/login',[AdminAuthController::class, 'showLogin'])->name('login')->middleware('guest');
+Route::get('/register',[AdminAuthController::class, 'showRegister'])->name('register')->middleware('guest');
+Route::post('/login',[AdminAuthController::class, 'login']);
+Route::post('/register',[AdminAuthController::class, 'register']);
+Route::middleware('auth')->group(function () {
+    Route::post('/logout',[AdminAuthController::class, 'logout'])->name('logout');
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -34,15 +47,20 @@ Route::resource('/blogs', BlogsController::class);
 
 
 // admin routes
-Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin.index');
-Route::get('/admin/settings', [AdminHomeController::class, 'settings'])->name('admin.settings');
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function() {
+    Route::get('/', [AdminHomeController::class, 'index'])->name('admin.index');
+    // settings route
+    Route::get('/settings', [AdminHomeController::class, 'settings'])->name('admin.settings');
+    // blogs route
+    Route::resource('/blogs', AdminBlogsController::class, ['as' => 'prefix'])->except(['update', 'delete']);
+    Route::post('/blogs/destroy', [AdminBlogsController::class, 'destroy'])->name('admin.blogs.destroy');
+    Route::post('/blogs/update', [AdminBlogsController::class, 'update'])->name('admin.blogs.update');
+    // projects route 
+    Route::resource('/projects', AdminProjectsController::class, ['as' => 'prefix'] )->except(['update', 'delete']);
+    Route::post('/projects/destroy', [AdminProjectsController::class, 'destroy'])->name('admin.projects.destroy');
+    Route::post('/projects/update', [AdminProjectsController::class, 'update'])->name('admin.projects.update');
+});
 
-Route::get('/admin/login', [AdminAuthController::class, 'index'])->name('admin.login');
 
-Route::resource('/admin/projects', ProjectsController::class)->except(['update', 'delete']);
-Route::post('/admin/projects/destroy', [ProjectsController::class, 'destroy'])->name('projects.destroy');
-Route::post('/admin/projects/update', [ProjectsController::class, 'update'])->name('projects.update');
 
-Route::resource('/admin/blogs', BlogsController::class)->except(['update', 'delete']);
-Route::post('/admin/blogs/destroy', [BlogsController::class, 'destroy'])->name('blogs.destroy');
-Route::post('/admin/blogs/update', [BlogsController::class, 'update'])->name('blogs.update');
+

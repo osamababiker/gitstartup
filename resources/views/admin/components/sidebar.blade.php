@@ -11,7 +11,7 @@
                   </div>
                   <nav class="nav flex-column pb-2 pb-lg-4 mb-3">
                     <h4 class="fs-xs fw-medium text-muted text-uppercase pb-1 mb-2">Account</h4>
-                    <a class="nav-link fw-semibold py-2 px-0 active" href="{{ route('admin.index') }}"><i class="ai-user-check fs-5 opacity-60 me-2"></i>Overview</a>
+                    <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.index') }}"><i class="ai-user-check fs-5 opacity-60 me-2"></i>Overview</a>
                     <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.settings') }}"><i class="ai-settings fs-5 opacity-60 me-2"></i>Settings</a>
                   </nav>
                   <nav class="nav flex-column pb-2 pb-lg-4 mb-1">

@@ -13,7 +13,21 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('en_ame');
+            $table->string('ar_name');
+            $table->string('logo')->nullable();
+            $table->string('image')->nullable();
+            $table->text('en_description');
+            $table->text('ar_description');
+
+            $table->unsignedBigInteger('sub_of');
+            $table->foreign('sub_of')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
+
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

@@ -44,7 +44,7 @@
             </div>
             <div class="d-sm-flex align-items-center justify-content-between pt-4 pt-md-5 mt-2 mt-md-0 mt-lg-2 mt-xl-4">
               <div class="d-flex justify-content-center order-sm-2 me-md-n2"><a class="btn btn-icon btn-sm btn-secondary btn-instagram rounded-circle mx-2" href="#"><i class="ai-instagram"></i></a><a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle mx-2" href="#"><i class="ai-facebook"></i></a><a class="btn btn-icon btn-sm btn-secondary btn-linkedin rounded-circle mx-2" href="#"><i class="ai-linkedin"></i></a></div>
-              <p class="fs-sm order-sm-1 text-center text-sm-start pt-4 pt-sm-0 mb-0 me-4"><span class="opacity-70">&copy; All rights reserved. Made by </span></p>
+              <p class="fs-sm order-sm-1 text-center text-sm-start pt-4 pt-sm-0 mb-0 me-4"><span class="opacity-70">&copy; All rights reserved Git Startup</span></p>
             </div>
           </div>
         </div>

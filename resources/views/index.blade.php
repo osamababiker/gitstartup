@@ -163,7 +163,7 @@
       </section>
       <!-- Portfolio-->
       <section class="container pt-5 pb-sm-3 mt-2 mt-sm-4 mb-2 mb-md-3 mb-lg-4 mb-xxl-5">
-        <h2 class="h1 text-center">Projects we work on</h2>
+        <h2 class="h1 text-center">What we build now</h2>
         <p class="pb-4 mb-md-2 mb-lg-3 text-center">here is a list of the projects that we work on </p>
         <!-- Item-->
         <div class="row align-items-center pt-xl-2 pb-5 mb-lg-2 mb-xl-3 mb-xxl-4">
