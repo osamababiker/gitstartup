@@ -41,7 +41,6 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 // projects
 Route::resource('/projects', ProjectsController::class);
-
 // blogs
 Route::resource('/blogs', BlogsController::class);
 
@@ -52,15 +51,15 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
     // settings route
     Route::get('/settings', [AdminHomeController::class, 'settings'])->name('admin.settings');
     // blogs route
-    Route::resource('/blogs', AdminBlogsController::class, ['as' => 'prefix'])->except(['update', 'delete']);
+    Route::resource('/blogs', AdminBlogsController::class, ['names' => [
+        'index' => 'admin.blogs.index'
+    ]])->except(['update', 'delete']);
     Route::post('/blogs/destroy', [AdminBlogsController::class, 'destroy'])->name('admin.blogs.destroy');
     Route::post('/blogs/update', [AdminBlogsController::class, 'update'])->name('admin.blogs.update');
     // projects route 
-    Route::resource('/projects', AdminProjectsController::class, ['as' => 'prefix'] )->except(['update', 'delete']);
+    Route::resource('/projects', AdminProjectsController::class, ['names' => [
+        'index' => 'admin.projects.index',
+    ]] )->except(['update', 'delete']);
     Route::post('/projects/destroy', [AdminProjectsController::class, 'destroy'])->name('admin.projects.destroy');
     Route::post('/projects/update', [AdminProjectsController::class, 'update'])->name('admin.projects.update');
 });
-
-
-
-

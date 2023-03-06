@@ -2,7 +2,7 @@
   <!-- Body-->
   <body class="bg-secondary">
     <!-- Page loading spinner-->
-    @include('../components/loading')
+    @include('../components/loading') 
     <!-- Page wrapper-->
     <main class="page-wrapper">
       <!-- Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page-->
