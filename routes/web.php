@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\ProjectsController as AdminProjectsController;
 use App\Http\Controllers\Admin\BlogsController as AdminBlogsController;
+use App\Http\Controllers\Admin\CategoriesController as AdminCategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,15 +51,24 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
     Route::get('/', [AdminHomeController::class, 'index'])->name('admin.index');
     // settings route
     Route::get('/settings', [AdminHomeController::class, 'settings'])->name('admin.settings');
-    // blogs route
+    /* ============ categories route ============== */
+    Route::resource('/categories', AdminCategoriesController::class, ['names' => [
+        'index' => 'admin.categories.index',
+        'store' => 'admin.categories.store'
+    ]])->except(['update', 'delete']);
+    Route::post('/categories/destroy', [AdminCategoriesController::class, 'destroy'])->name('admin.categories.destroy');
+    Route::post('/categories/update', [AdminCategoriesController::class, 'update'])->name('admin.categories.update');
+    /* ============ blogs route ============== */
     Route::resource('/blogs', AdminBlogsController::class, ['names' => [
-        'index' => 'admin.blogs.index'
+        'index' => 'admin.blogs.index',
+        'store' => 'admin.blogs.store'
     ]])->except(['update', 'delete']);
     Route::post('/blogs/destroy', [AdminBlogsController::class, 'destroy'])->name('admin.blogs.destroy');
     Route::post('/blogs/update', [AdminBlogsController::class, 'update'])->name('admin.blogs.update');
-    // projects route 
+    /*============== projects route ============== */
     Route::resource('/projects', AdminProjectsController::class, ['names' => [
         'index' => 'admin.projects.index',
+        'store' => 'admin.projects.store'
     ]] )->except(['update', 'delete']);
     Route::post('/projects/destroy', [AdminProjectsController::class, 'destroy'])->name('admin.projects.destroy');
     Route::post('/projects/update', [AdminProjectsController::class, 'update'])->name('admin.projects.update');

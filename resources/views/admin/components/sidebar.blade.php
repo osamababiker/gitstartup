@@ -18,8 +18,8 @@
           <h4 class="fs-xs fw-medium text-muted text-uppercase pb-1 mb-2">Dashboard</h4>
           <a class="nav-link fw-semibold py-2 px-0" href="account-favorites.html"><i class="ai-pen fs-5 opacity-60 me-2"></i>Stores</a>
           <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.projects.index') }}"><i class="ai-code-curly fs-5 opacity-60 me-2"></i>Projects</a>
-          <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.blogs.index') }}"><i class="ai-clipboard fs-5 opacity-60 me-2"></i>Blog Posts</a>
-          <a class="nav-link fw-semibold py-2 px-0" href="#"><i class="ai-user-group fs-5 opacity-60 me-2"></i>Team Members</a>
+          <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.blogs.index') }}"><i class="ai-edit fs-5 opacity-60 me-2"></i>Blogs</a>
+          <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.categories.index') }}"><i class="ai-flag fs-5 opacity-60 me-2"></i>Categories</a>
         </nav>
         <nav class="nav flex-column"><a class="nav-link fw-semibold py-2 px-0" href="#"><i class="ai-logout fs-5 opacity-60 me-2"></i>Sign out</a></nav>
       </div>

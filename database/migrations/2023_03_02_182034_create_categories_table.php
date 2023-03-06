@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('enName');
-            $table->string('arName');
-            $table->unsignedBigInteger('subOf')->nullable();
+            $table->string('en_name');
+            $table->string('ar_name');
+            $table->unsignedBigInteger('sub_of')->nullable();
 
-            $table->foreign('subOf')
+            $table->foreign('sub_of')
                 ->references('id')
                 ->on('categories')
                 ->onDelete('cascade');

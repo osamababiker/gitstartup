@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('ar_title');
             $table->string('image');
             $table->text('en_description');
-            $table->text('ar_escription');
+            $table->text('ar_description');
 
             $table->unsignedBigInteger('sub_of');
             $table->foreign('sub_of')

@@ -30,8 +30,8 @@
                 <!-- Orders accordion-->
                 <section class="card border-0 mb-4" id="tables-color-borders">
                   <div class="card-body pb-0 d-flex justify-content-between ">
-                    <h2 class="h4 mb-n2">Blogs list</h2>
-                    <button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#addPostModal"> <i class="ai-plus text-primary"></i> </button>
+                    <h2 class="h4 mb-n2">Categories list</h2>
+                    <button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#addProjectModal"> <i class="ai-plus text-primary"></i> </button>
                   </div>
                   <div class="card-body">
                     <div class="tab-content">
@@ -41,39 +41,45 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Title</th>
-                          <th>Image</th>
-                          <th>Category</th>
+                          <th>Category name</th>
+                          <th>Sub of</th>
+                          <th>Created at</th>
                           <th>Settings</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($blogs as $blog)
+                        @foreach($categories as $category)
                         <tr>
-                          <th scope="row">{{ $blog->id }}</th>
-                          <td>{{ $blog->en_title }}</td>
-                          <td> <img src="{{ asset('upload/blog/' . $blog->image) }}" width="50" height="50" alt=""> </td>
-                          <td>{{ $blog->category->en_name }}</td>
+                          <th scope="row">{{ $category->id }}</th>
+                          <td>{{ $category->en_name }}</td>
+                          <td> 
+                            @if($category->subOf)
+                              {{ $category->subOf->en_name }}
+                            @else
+                              -
+                            @endif
+                          </td>
+                          <td>{{ $category->created_at->diffForHumans() }}</td>
                           <td>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#editModal_{{ $blog->id }}" href="#"> <i class="ai-edit-alt text-primary"></i> </a>
+                            <a  type="button" data-bs-toggle="modal" data-bs-target="#editModal_{{ $category->id }}" href="#"> <i class="ai-edit-alt text-primary"></i> </a>
                             &nbsp;&nbsp;
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $blog->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
+                            <a  type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $category->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
                           </td>
                         </tr>
                         <!-- Delete modal -->
-                        <div id="deleteModal_{{ $blog->id }}" class="modal" tabindex="-1" role="dialog">
+                        <div id="deleteModal_{{ $category->id }}" class="modal" tabindex="-1" role="dialog">
                           <div class="modal-dialog modal-lg"  role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4> Delete Post </h4>
+                                <h4> Delete Bskliat </h4>
                                 <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body tab-content">
-                                <h3> Are you sure you want to delete this post ? </h3>
-                                <form autocomplete="off" id="deleteForm_{{ $blog->id }}" method="post" action="{{ route('admin.blogs.destroy') }}">
+                                <h3> Are you sure you want to delete this category ? </h3>
+                                <form autocomplete="off" id="deleteForm_{{ $category->id }}" method="post" action="{{ route('admin.categories.destroy') }}">
                                   @csrf
-                                  <input type="hidden" name="blog_id" value="{{ $blog->id }}">
-                                  <button type="submit" form="deleteForm_{{ $blog->id }}" class="btn btn-primary">Yes sure</button>
+                                  <input type="hidden" name="category_id" value="{{ $category->id }}">
+                                  <button type="submit" form="deleteForm_{{ $category->id }}" class="btn btn-primary">Yes sure</button>
                                   <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                                 </form>
                               </div>
@@ -82,47 +88,35 @@
                         </div>
                         <!-- End delete modal -->
                         <!-- Edit modal -->
-                        <div id="editModal_{{ $blog->id }}" class="modal" tabindex="-1" role="dialog">
+                        <div id="editModal_{{ $category->id }}" class="modal" tabindex="-1" role="dialog">
                           <div class="modal-dialog modal-lg"  role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4> Post details </h4>
+                                <h4> {{ $category->en_name }} details </h4>
                                 <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body tab-content">
-                                <form autocomplete="off" id="editForm_{{ $blog->id }}" method="post" action="{{ route('admin.blogs.update') }}"  enctype="multipart/form-data">
+                                <form autocomplete="off" id="editForm_{{ $category->id }}" method="post" action="{{ route('admin.categories.update') }}">
                                   @csrf
-                                  <input type="hidden" name="blog_id" value="{{ $blog->id }}">
+                                  <input type="hidden" name="category_id" value="{{ $category->id }}">
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="en_title" class="form-label">Post title (english)</label>
-                                    <input type="text" value="{{ $blog->en_title }}" name="en_title" class="form-control" id="en_title" placeholder="Enter post title in english">
+                                    <label for="en_name" class="form-label">Category name (english)</label>
+                                    <input type="text" class="form-control" value="{{ $category->en_name }}" name="en_name" id="en_name" placeholder="Enter project name in english">
                                   </div>
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="ar_title" class="form-label">Post name (arabic)</label>
-                                    <input type="text" value="{{ $blog->ar_title }}" name="ar_title" class="form-control" id="ar_title" placeholder="Enter post title in arabic">
+                                    <label for="ar_name" class="form-label">Category name (arabic)</label>
+                                    <input type="text" class="form-control" value="{{ $category->ar_name }}" name="ar_name" id="ar_name" placeholder="Enter project name in arabic">
                                   </div>
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="sub_of" class="form-label">Post Category</label>
+                                    <label for="sub_of" class="form-label">Sub of</label>
                                     <select name="sub_of" id="sub_of" class="form-control">
-                                      <option value="{{ $blog->category->id }}">{{ $blog->category->en_name }}</option>
+                                      <option value=""></option>
                                       @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->en_name }}</option>
                                       @endforeach
                                     </select>
                                   </div>
-                                  <div class="mb-3 mb-sm-4">
-                                    <label for="image" class="form-label">Post Cover Image</label>
-                                    <input type="file" name="image" class="form-control" id="image">
-                                  </div>
-                                  <div class="mb-3 mb-sm-4">
-                                    <label for="en_description" class="form-label">Post description (english)</label>
-                                    <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control">{{ $blog->en_description }}</textarea>
-                                  </div>
-                                  <div class="mb-3 mb-sm-4">
-                                    <label for="ar_description" class="form-label">Post description (arabic)</label>
-                                    <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control">{{ $blog->ar_description }}</textarea>
-                                  </div>
-                                  <button type="submit" form="editForm_{{ $blog->id }}" class="btn btn-primary w-100">Edit Details</button>
+                                  <button type="submit" form="editForm_{{ $category->id }}" class="btn btn-primary w-100">Edit Details</button>
                                 </form>
                               </div>
                             </div>
@@ -132,52 +126,40 @@
                         @endforeach
                       </div>
                       </tbody>
-                      </table>
-                      </div>
+                    </table>
+                    </div>
                       </div>
                     </div>
                   </div>
                 </section>
                 </div>
 
-                <!-- Add new post modal -->
-                <div id="addPostModal" class="modal" tabindex="-1" role="dialog">
+                <!-- Add project modal -->
+                <div id="addProjectModal" class="modal" tabindex="-1" role="dialog">
                   <div class="modal-dialog modal-lg"  role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h4> Post details</h4>
+                        <h4> Project details </h4>
                         <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body tab-content">
-                        <form autocomplete="off" method="post" action="{{ route('admin.blogs.store') }}" enctype="multipart/form-data">
+                        <form autocomplete="off" method="post" action="{{ route('admin.categories.store') }}">
                           @csrf
                           <div class="mb-3 mb-sm-4">
-                            <label for="en_title" class="form-label">Post title (english)</label>
-                            <input type="text" name="en_title" class="form-control" id="en_title" placeholder="Enter post title in english">
+                            <label for="en_name" class="form-label">Category name (english)</label>
+                            <input type="text" class="form-control" name="en_name" id="en_name" placeholder="Enter category name in english">
                           </div>
                           <div class="mb-3 mb-sm-4">
-                            <label for="ar_title" class="form-label">Post name (arabic)</label>
-                            <input type="text" name="ar_title" class="form-control" id="ar_title" placeholder="Enter post title in arabic">
+                            <label for="ar_name" class="form-label">Category name (arabic)</label>
+                            <input type="text" class="form-control" name="ar_name" id="ar_name" placeholder="Enter category name in arabic">
                           </div>
                           <div class="mb-3 mb-sm-4">
-                            <label for="sub_of" class="form-label">Post Category</label>
+                            <label for="sub_of" class="form-label">Sub of</label>
                             <select name="sub_of" id="sub_of" class="form-control">
                               @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->en_name }}</option>
                               @endforeach
                             </select>
-                          </div>
-                          <div class="mb-3 mb-sm-4">
-                            <label for="image" class="form-label">Post Cover Image</label>
-                            <input type="file" name="image" class="form-control" id="image">
-                          </div>
-                          <div class="mb-3 mb-sm-4">
-                            <label for="en_description" class="form-label">Post description (english)</label>
-                            <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control"></textarea>
-                          </div>
-                          <div class="mb-3 mb-sm-4">
-                            <label for="ar_description" class="form-label">Post description (arabic)</label>
-                            <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control"></textarea>
                           </div>
                           <button type="submit" class="btn btn-primary w-100">Save Details</button>
                         </form>
@@ -185,11 +167,19 @@
                     </div>
                   </div>
                 </div>
-                <!-- End add post modal -->
+                <!-- End add project modal -->
 
                 <!-- Pagination-->
-                {{ $blogs->links() }}
-
+                <div class="d-sm-flex align-items-center pt-4 pt-sm-5">
+                  <nav class="order-sm-2 ms-sm-auto mb-4 mb-sm-0" aria-label="Orders pagination">
+                    <ul class="pagination pagination-sm justify-content-center">
+                      <li class="page-item active" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
             </div>
           </div>
