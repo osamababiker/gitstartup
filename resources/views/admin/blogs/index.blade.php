@@ -27,6 +27,8 @@
             </div>
             <div class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4">
               <div class="card-body pb-4">
+                <!-- Feedback -->
+                @include('admin/components/feedback')
                 <!-- Orders accordion-->
                 <section class="card border-0 mb-4" id="tables-color-borders">
                   <div class="card-body pb-0 d-flex justify-content-between ">
@@ -52,7 +54,7 @@
                         <tr>
                           <th scope="row">{{ $blog->id }}</th>
                           <td>{{ $blog->en_title }}</td>
-                          <td> <img src="{{ asset('upload/blog/' . $blog->image) }}" width="50" height="50" alt=""> </td>
+                          <td> <img src="{{ asset('upload/blogs/' . $blog->image) }}" width="50" height="50" alt=""> </td>
                           <td>{{ $blog->category->en_name }}</td>
                           <td>
                             <a type="button" data-bs-toggle="modal" data-bs-target="#editModal_{{ $blog->id }}" href="#"> <i class="ai-edit-alt text-primary"></i> </a>
@@ -98,7 +100,7 @@
                                     <input type="text" value="{{ $blog->en_title }}" name="en_title" class="form-control" id="en_title" placeholder="Enter post title in english">
                                   </div>
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="ar_title" class="form-label">Post name (arabic)</label>
+                                    <label for="ar_title" class="form-label">Post title (arabic)</label>
                                     <input type="text" value="{{ $blog->ar_title }}" name="ar_title" class="form-control" id="ar_title" placeholder="Enter post title in arabic">
                                   </div>
                                   <div class="mb-3 mb-sm-4">
@@ -116,11 +118,11 @@
                                   </div>
                                   <div class="mb-3 mb-sm-4">
                                     <label for="en_description" class="form-label">Post description (english)</label>
-                                    <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control">{{ $blog->en_description }}</textarea>
+                                    <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->en_description }}</textarea>
                                   </div>
                                   <div class="mb-3 mb-sm-4">
                                     <label for="ar_description" class="form-label">Post description (arabic)</label>
-                                    <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control">{{ $blog->ar_description }}</textarea>
+                                    <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->ar_description }}</textarea>
                                   </div>
                                   <button type="submit" form="editForm_{{ $blog->id }}" class="btn btn-primary w-100">Edit Details</button>
                                 </form>
@@ -156,7 +158,7 @@
                             <input type="text" name="en_title" class="form-control" id="en_title" placeholder="Enter post title in english">
                           </div>
                           <div class="mb-3 mb-sm-4">
-                            <label for="ar_title" class="form-label">Post name (arabic)</label>
+                            <label for="ar_title" class="form-label">Post title (arabic)</label>
                             <input type="text" name="ar_title" class="form-control" id="ar_title" placeholder="Enter post title in arabic">
                           </div>
                           <div class="mb-3 mb-sm-4">
@@ -173,11 +175,11 @@
                           </div>
                           <div class="mb-3 mb-sm-4">
                             <label for="en_description" class="form-label">Post description (english)</label>
-                            <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control"></textarea>
+                            <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                           </div>
                           <div class="mb-3 mb-sm-4">
                             <label for="ar_description" class="form-label">Post description (arabic)</label>
-                            <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control"></textarea>
+                            <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                           </div>
                           <button type="submit" class="btn btn-primary w-100">Save Details</button>
                         </form>

@@ -32,8 +32,8 @@
                 <!-- Orders accordion-->
                 <section class="card border-0 mb-4" id="tables-color-borders">
                   <div class="card-body pb-0 d-flex justify-content-between ">
-                    <h2 class="h4 mb-n2">Projects list</h2>
-                    <button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#addProjectModal"> <i class="ai-plus text-primary"></i> </button>
+                    <h2 class="h4 mb-n2">Stories list</h2>
+                    <button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#addPostModal"> <i class="ai-plus text-primary"></i> </button>
                   </div>
                   <div class="card-body">
                     <div class="tab-content">
@@ -43,39 +43,39 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Project name</th>
-                          <th>Project Logo</th>
-                          <th>Created at</th>
+                          <th>Title</th>
+                          <th>Image</th>
+                          <th>Category</th>
                           <th>Settings</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($projects as $project)
+                        @foreach($stories as $story)
                         <tr>
-                          <th scope="row">{{ $project->id }}</th>
-                          <td>{{ $project->en_name }}</td>
-                          <td> <img src="{{ asset('upload/projects/' . $project->logo) }}" width="50" height="50" alt=""> </td>
-                          <td>{{ $project->created_at->diffForHumans() }}</td>
+                          <th scope="row">{{ $story->id }}</th>
+                          <td>{{ $story->en_title }}</td>
+                          <td> <img src="{{ asset('upload/stories/' . $story->image) }}" width="50" height="50" alt=""> </td>
+                          <td>{{ $story->category->en_name }}</td>
                           <td>
-                            <a  type="button" data-bs-toggle="modal" data-bs-target="#editModal_{{ $project->id }}" href="#"> <i class="ai-edit-alt text-primary"></i> </a>
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#editModal_{{ $story->id }}" href="#"> <i class="ai-edit-alt text-primary"></i> </a>
                             &nbsp;&nbsp;
-                            <a  type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $project->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $story->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
                           </td>
                         </tr>
                         <!-- Delete modal -->
-                        <div id="deleteModal_{{ $project->id }}" class="modal" tabindex="-1" role="dialog">
+                        <div id="deleteModal_{{ $story->id }}" class="modal" tabindex="-1" role="dialog">
                           <div class="modal-dialog modal-lg"  role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4> Delete {{ $project->en_name }} </h4>
+                                <h4> Delete Story </h4>
                                 <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body tab-content">
-                                <h3> Are you sure you want to delete this project ? </h3>
-                                <form autocomplete="off" id="deleteForm_{{ $project->id }}" method="post" action="{{ route('admin.projects.destroy') }}">
+                                <h3> Are you sure you want to delete this story ? </h3>
+                                <form autocomplete="off" id="deleteForm_{{ $story->id }}" method="post" action="{{ route('admin.stories.destroy') }}">
                                   @csrf
-                                  <input type="hidden" name="project_id" value="{{ $project->id }}">
-                                  <button type="submit" form="deleteForm_{{ $project->id }}" class="btn btn-primary">Yes sure</button>
+                                  <input type="hidden" name="story_id" value="{{ $story->id }}">
+                                  <button type="submit" form="deleteForm_{{ $story->id }}" class="btn btn-primary">Yes sure</button>
                                   <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                                 </form>
                               </div>
@@ -84,51 +84,47 @@
                         </div>
                         <!-- End delete modal -->
                         <!-- Edit modal -->
-                        <div id="editModal_{{ $project->id }}" class="modal" tabindex="-1" role="dialog">
+                        <div id="editModal_{{ $story->id }}" class="modal" tabindex="-1" role="dialog">
                           <div class="modal-dialog modal-lg"  role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4> {{ $project->en_name }} details </h4>
+                                <h4> Story details </h4>
                                 <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body tab-content">
-                                <form autocomplete="off" method="post" id="editForm_{{ $project->id }}" action="{{ route('admin.projects.update') }}" enctype="multipart/form-data">
-                                  @csrf 
-                                  <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                <form autocomplete="off" id="editForm_{{ $story->id }}" method="post" action="{{ route('admin.stories.update') }}"  enctype="multipart/form-data">
+                                  @csrf
+                                  <input type="hidden" name="story_id" value="{{ $story->id }}">
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="en_name" class="form-label">Project name (english)</label>
-                                    <input type="text" value="{{ $project->en_name }}" class="form-control" id="en_name" name="en_name" placeholder="Enter project name in english">
+                                    <label for="en_title" class="form-label">Story title (english)</label>
+                                    <input type="text" value="{{ $story->en_title }}" name="en_title" class="form-control" id="en_title" placeholder="Enter post title in english">
                                   </div>
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="ar_name" class="form-label">Project name (arabic)</label>
-                                    <input type="text" value="{{ $project->ar_name }}" class="form-control" id="ar_name" name="ar_name" placeholder="Enter project name in arabic">
+                                    <label for="ar_title" class="form-label">Story name (arabic)</label>
+                                    <input type="text" value="{{ $story->ar_title }}" name="ar_title" class="form-control" id="ar_title" placeholder="Enter post title in arabic">
                                   </div>
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="sub_of" class="form-label">Project Category</label>
+                                    <label for="sub_of" class="form-label">Story Category</label>
                                     <select name="sub_of" id="sub_of" class="form-control">
-                                      <option value="{{ $project->category->id }}">{{ $project->category->en_name }}</option>
+                                      <option value="{{ $story->category->id }}">{{ $story->category->en_name }}</option>
                                       @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->en_name }}</option>
                                       @endforeach
                                     </select>
                                   </div>
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="logo" class="form-label">Project Logo</label>
-                                    <input type="file" name="logo" class="form-control" id="logo">
-                                  </div>
-                                  <div class="mb-3 mb-sm-4">
-                                    <label for="image" class="form-label">Project Main Image</label>
+                                    <label for="image" class="form-label">Story Image</label>
                                     <input type="file" name="image" class="form-control" id="image">
                                   </div>
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="en_description" class="form-label">Project description (english)</label>
-                                    <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor">{{ $project->en_description }}</textarea>
+                                    <label for="en_content" class="form-label">Story content (english)</label>
+                                    <textarea name="en_content" id="en_content" cols="8" rows="8" class="form-control tiny-editor">{{ $story->en_content }}</textarea>
                                   </div>
                                   <div class="mb-3 mb-sm-4">
-                                    <label for="ar_description" class="form-label">Project description (arabic)</label>
-                                    <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control tiny-editor">{{ $project->ar_description }}</textarea>
+                                    <label for="ar_content" class="form-label">Story content (arabic)</label>
+                                    <textarea name="ar_content" id="ar_content" cols="8" rows="8" class="form-control tiny-editor">{{ $story->ar_content }}</textarea>
                                   </div>
-                                  <button type="submit" form="editForm_{{ $project->id }}" class="btn btn-primary w-100">Edit Details</button>
+                                  <button type="submit" form="editForm_{{ $story->id }}" class="btn btn-primary w-100">Edit Details</button>
                                 </form>
                               </div>
                             </div>
@@ -138,35 +134,35 @@
                         @endforeach
                       </div>
                       </tbody>
-                    </table>
-                  </div>
+                      </table>
+                      </div>
                       </div>
                     </div>
                   </div>
                 </section>
                 </div>
 
-                <!-- Add project modal -->
-                <div id="addProjectModal" class="modal" tabindex="-1" role="dialog">
+                <!-- Add new post modal -->
+                <div id="addPostModal" class="modal" tabindex="-1" role="dialog">
                   <div class="modal-dialog modal-lg"  role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h4> Project details </h4>
+                        <h4> Story details</h4>
                         <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body tab-content">
-                        <form autocomplete="off" method="post" action="{{ route('admin.projects.store') }}" enctype="multipart/form-data">
+                        <form autocomplete="off" method="post" action="{{ route('admin.stories.store') }}" enctype="multipart/form-data">
                           @csrf
                           <div class="mb-3 mb-sm-4">
-                            <label for="en_name" class="form-label">Project name (english)</label>
-                            <input type="text" class="form-control" name="en_name" id="en_name" placeholder="Enter project name in english">
+                            <label for="en_title" class="form-label">Story title (english)</label>
+                            <input type="text" name="en_title" class="form-control" id="en_title" placeholder="Enter post title in english">
                           </div>
                           <div class="mb-3 mb-sm-4">
-                            <label for="ar_name" class="form-label">Project name (arabic)</label>
-                            <input type="text" class="form-control" name="ar_name" id="ar_name" placeholder="Enter project name in arabic">
+                            <label for="ar_title" class="form-label">Story title (arabic)</label>
+                            <input type="text" name="ar_title" class="form-control" id="ar_title" placeholder="Enter post title in arabic">
                           </div>
                           <div class="mb-3 mb-sm-4">
-                            <label for="sub_of" class="form-label">Project Category</label>
+                            <label for="sub_of" class="form-label">Story Category</label>
                             <select name="sub_of" id="sub_of" class="form-control">
                               @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->en_name }}</option>
@@ -174,20 +170,16 @@
                             </select>
                           </div>
                           <div class="mb-3 mb-sm-4">
-                            <label for="logo" class="form-label">Project Logo</label>
-                            <input type="file" name="logo" class="form-control" id="logo">
-                          </div>
-                          <div class="mb-3 mb-sm-4">
-                            <label for="image" class="form-label">Project Main Image</label>
+                            <label for="image" class="form-label">Story  Image</label>
                             <input type="file" name="image" class="form-control" id="image">
                           </div>
                           <div class="mb-3 mb-sm-4">
-                            <label for="en_description" class="form-label">Project description (english)</label>
-                            <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor"></textarea>
+                            <label for="en_content" class="form-label">Story description (english)</label>
+                            <textarea name="en_content" id="en_content" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                           </div>
                           <div class="mb-3 mb-sm-4">
-                            <label for="ar_description" class="form-label">Project description (arabic)</label>
-                            <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control tiny-editor"></textarea>
+                            <label for="ar_content" class="form-label">Story description (arabic)</label>
+                            <textarea name="ar_content" id="ar_content" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                           </div>
                           <button type="submit" class="btn btn-primary w-100">Save Details</button>
                         </form>
@@ -195,9 +187,11 @@
                     </div>
                   </div>
                 </div>
-                <!-- End add project modal -->
+                <!-- End add post modal -->
 
-            
+                <!-- Pagination-->
+                {{ $stories->links() }}
+
               </div>
             </div>
           </div>

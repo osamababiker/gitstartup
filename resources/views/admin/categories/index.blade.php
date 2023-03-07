@@ -27,6 +27,8 @@
             </div>
             <div class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4">
               <div class="card-body pb-4">
+                <!-- Feedback -->
+                @include('admin/components/feedback')
                 <!-- Orders accordion-->
                 <section class="card border-0 mb-4" id="tables-color-borders">
                   <div class="card-body pb-0 d-flex justify-content-between ">
@@ -156,6 +158,7 @@
                           <div class="mb-3 mb-sm-4">
                             <label for="sub_of" class="form-label">Sub of</label>
                             <select name="sub_of" id="sub_of" class="form-control">
+                              <option value=""></option>
                               @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->en_name }}</option>
                               @endforeach
@@ -168,18 +171,6 @@
                   </div>
                 </div>
                 <!-- End add project modal -->
-
-                <!-- Pagination-->
-                <div class="d-sm-flex align-items-center pt-4 pt-sm-5">
-                  <nav class="order-sm-2 ms-sm-auto mb-4 mb-sm-0" aria-label="Orders pagination">
-                    <ul class="pagination pagination-sm justify-content-center">
-                      <li class="page-item active" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    </ul>
-                  </nav>
-                </div>
               </div>
             </div>
           </div>

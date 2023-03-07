@@ -17,9 +17,6 @@
             <!-- Basic info-->
             <section class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4 mb-4">
               <div class="card-body">
-                <div class="d-flex align-items-center mt-sm-n1 pb-4 mb-0 mb-lg-1 mb-xl-3"><i class="ai-user text-primary lead pe-1 me-2"></i>
-                  <h2 class="h4 mb-0">Basic info</h2>
-                </div>
                 <div class="d-flex align-items-center">
                   <div class="dropdown"><a class="d-flex flex-column justify-content-end position-relative overflow-hidden rounded-circle bg-size-cover bg-position-center flex-shrink-0" href="#" data-bs-toggle="dropdown" aria-expanded="false" style="width: 80px; height: 80px; background-image: url({{ asset('assets/img/user.png') }});"><span class="d-block text-light text-center lh-1 pb-1" style="background-color: rgba(0,0,0,.5)"><i class="ai-camera"></i></span></a>
                     <div class="dropdown-menu my-1"><a class="dropdown-item fw-normal" href="#"><i class="ai-camera fs-base opacity-70 me-2"></i>Upload new photo</a><a class="dropdown-item text-danger fw-normal" href="#"><i class="ai-trash fs-base me-2"></i>Delete photo</a></div>
@@ -32,23 +29,15 @@
                 <div class="row g-3 g-sm-4 mt-0 mt-lg-2">
                   <div class="col-sm-6">
                     <label class="form-label" for="fn">First name</label>
-                    <input class="form-control" type="text" value="Isabella" id="fn">
-                  </div>
-                  <div class="col-sm-6">
-                    <label class="form-label" for="ln">Last name</label>
-                    <input class="form-control" type="text" value="Bocouse" id="ln">
+                    <input class="form-control" name="name" type="text" value="{{ Auth::user()->name }}" id="fn">
                   </div>
                   <div class="col-sm-6">
                     <label class="form-label" for="email">Email address</label>
-                    <input class="form-control" type="email" value="bocouse@example.com" id="email">
-                  </div>
-                  <div class="col-sm-6">
-                    <label class="form-label" for="phone">Phone <span class='text-muted'>(optional)</span></label>
-                    <input class="form-control" type="tel" data-format="{&quot;numericOnly&quot;: true, &quot;delimiters&quot;: [&quot;+1 &quot;, &quot; &quot;, &quot; &quot;], &quot;blocks&quot;: [0, 3, 3, 2]}" placeholder="+1 ___ ___ __" id="phone">
+                    <input class="form-control" type="email" name="email" value="{{ Auth::user()->email }}" id="email">
                   </div>
                   <div class="col-12 d-flex justify-content-end pt-3">
                     <button class="btn btn-secondary" type="button">Cancel</button>
-                    <button class="btn btn-primary ms-3" type="button">Save changes</button>
+                    <button class="btn btn-primary ms-3" type="submit">Save changes</button>
                   </div>
                 </div>
               </div>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\ProjectsController as AdminProjectsController;
 use App\Http\Controllers\Admin\BlogsController as AdminBlogsController;
 use App\Http\Controllers\Admin\CategoriesController as AdminCategoriesController;
+use App\Http\Controllers\Admin\StoriesController as AdminStoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,4 +73,11 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
     ]] )->except(['update', 'delete']);
     Route::post('/projects/destroy', [AdminProjectsController::class, 'destroy'])->name('admin.projects.destroy');
     Route::post('/projects/update', [AdminProjectsController::class, 'update'])->name('admin.projects.update');
+    /*============== stories route ============== */
+    Route::resource('/stories', AdminStoriesController::class, ['names' => [
+        'index' => 'admin.stories.index',
+        'store' => 'admin.stories.store'
+    ]] )->except(['update', 'delete']);
+    Route::post('/stories/destroy', [AdminStoriesController::class, 'destroy'])->name('admin.stories.destroy');
+    Route::post('/stories/update', [AdminStoriesController::class, 'update'])->name('admin.stories.update');
 });

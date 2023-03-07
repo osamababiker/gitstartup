@@ -8,7 +8,9 @@ use App\Models\Category;
 
 class BlogsController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     */
     public function index(){
         return view('admin.blogs.index', [
             'blogs' => Blog::paginate(15),
@@ -31,7 +33,7 @@ class BlogsController extends Controller
         if($request->has('image')){
             $image = $request->file('image');
             $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
-            $image->move(public_path('upload/blog'),$image_name);
+            $image->move(public_path('upload/blogs'),$image_name);
         } 
 
         $blog = new Blog();
@@ -61,12 +63,12 @@ class BlogsController extends Controller
         $blog = Blog::findOrFail($request->blog_id);
 
         if($request->has('image')){
-            if(file_exists(public_path('upload/blog/'.$blog->image))){
-                unlink(public_path('upload/blog/'.$blog->image));
+            if(file_exists(public_path('upload/blogs/'.$blog->image))){
+                unlink(public_path('upload/blogs/'.$blog->image));
             }
-            $image = $request->file('blog');
+            $image = $request->file('image');
             $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
-            $image->move(public_path('upload/blog'),$image_name);
+            $image->move(public_path('upload/blogs'),$image_name);
         }else{
             $image_name = $blog->image;
         }
