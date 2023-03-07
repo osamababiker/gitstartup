@@ -50,7 +50,7 @@ class StoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request){
+    public function update(Request $request, string $id){
         $request->validate([
             'en_title' => 'required|string',
             'ar_title' => 'required|string',
@@ -58,7 +58,7 @@ class StoriesController extends Controller
             'ar_content' => 'required|string',
             'sub_of' => 'required',
         ]);
-        $story = Story::findOrFail($request->story_id);
+        $story = Story::findOrFail($id);
         if($request->has('image')){
             if(file_exists(public_path('upload/stories/'.$story->image))){
                 unlink(public_path('upload/stories/'.$story->image));
@@ -82,8 +82,8 @@ class StoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request){
-        $story = Story::findOrFail($request->story_id)->delete();
+    public function destroy(string $id){
+        $story = Story::findOrFail($id)->delete();
         return redirect()->back()->with('feedback', 'story has been deleted');
     }
 }

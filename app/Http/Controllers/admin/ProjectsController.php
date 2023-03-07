@@ -59,7 +59,7 @@ class ProjectsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request){ 
+    public function update(Request $request, string $id){ 
         $request->validate([
             'en_name' => 'required|string',
             'ar_name' => 'required|string',
@@ -67,7 +67,7 @@ class ProjectsController extends Controller
             'en_description' => 'required|string',
             'ar_description' => 'required|string'
         ]);
-        $project = Project::findOrFail($request->project_id);
+        $project = Project::findOrFail($id);
         if($request->has('logo')){
             if(file_exists(public_path('upload/projects/'.$project->logo))){
                 unlink(public_path('upload/projects/'.$project->logo));
@@ -103,8 +103,8 @@ class ProjectsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request){
-        Project::findOrFail($request->project_id)->delete();
+    public function destroy(string $id){
+        Project::findOrFail($id)->delete();
         return redirect()->back()->with('feedback', 'project has been deleted');
     }
 }

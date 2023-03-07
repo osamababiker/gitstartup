@@ -72,9 +72,9 @@
                               </div>
                               <div class="modal-body tab-content">
                                 <h3> Are you sure you want to delete this story ? </h3>
-                                <form autocomplete="off" id="deleteForm_{{ $story->id }}" method="post" action="{{ route('admin.stories.destroy') }}">
+                                <form autocomplete="off" id="deleteForm_{{ $story->id }}" method="post" action="{{ route('admin.stories.destroy', ['story' => $story->id]) }}">
                                   @csrf
-                                  <input type="hidden" name="story_id" value="{{ $story->id }}">
+                                  @method('DELETE')
                                   <button type="submit" form="deleteForm_{{ $story->id }}" class="btn btn-primary">Yes sure</button>
                                   <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                                 </form>
@@ -92,9 +92,9 @@
                                 <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body tab-content">
-                                <form autocomplete="off" id="editForm_{{ $story->id }}" method="post" action="{{ route('admin.stories.update') }}"  enctype="multipart/form-data">
+                                <form autocomplete="off" id="editForm_{{ $story->id }}" method="post" action="{{ route('admin.stories.update', ['story' => $story->id]) }}"  enctype="multipart/form-data">
                                   @csrf
-                                  <input type="hidden" name="story_id" value="{{ $story->id }}">
+                                  @method('PUT')
                                   <div class="mb-3 mb-sm-4">
                                     <label for="en_title" class="form-label">Story title (english)</label>
                                     <input type="text" value="{{ $story->en_title }}" name="en_title" class="form-control" id="en_title" placeholder="Enter post title in english">

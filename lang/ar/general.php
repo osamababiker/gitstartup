@@ -12,9 +12,13 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'brand_name' => 'جيت استارتب',
+    'company_name' => 'جيت استارتب',
+    'home_page' => 'الرئيسية',
+    'about_page' => 'عن جيت',
+    'projects_page' => 'مشاريعنا',
+    'blogs_page' => 'مدونتنا',
+    'company_slogan' => 'تعليم جيد وفرص عمل للجميع',
+    'loading' => 'جاري التحميل'
 
 ];

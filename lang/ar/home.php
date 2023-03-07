@@ -1,18 +1,27 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
-    */
-
-    'nav_home' => 'الرئيسية',
+    'hero_slogan' => 'معا لنجعل من العالم مكانا أفضل',
+    'hero_bio' => 'نحن نستخدم التكنولوجيا والابتكار ومفاهيم ريادة الاعمال لبناء حلول لمشاكل العالم الحقيقي.',
+    'hero_button' => 'كن شريكا',
+    'hero_project_link' => 'تصفح مشاريعنا',
+    'hero_footer_text' => 'حلول لمشاكل الناس',
+    'our_services_title' => 'ماذا نقدم',
+    'our_services_bio' => 'نحن نبني حلول تقنية لمشاكل الناس الحقيقية',
+    'services_one_title' => 'مشاريع سوفتوير',
+    'services_one_bio' => 'نحن نبني حلول سوفتوير جاهزة للاستخدام في مجال التعليم وخلق فرص العمل.',
+    'services_two_title' => 'دعم تقني',
+    'services_two_bio' => 'نحن نقدم الدعم التقني للشركات التي تعمل في مجال التعليم و خلق فرص العمل.',
+    'services_three_title' => 'تطوير الاعمال',
+    'services_three_bio' => 'يعمل فريق التطوير لدينا بجد لبناء مشاريع لها تأثير في حياة الناس.',
+    'our_industries_title' => 'التأثير الذي نود خلقه',
+    'our_industries_bio' => 'نريد أن يكون لها تأثير في هذه المجالات',
+    'industre_one_title' => 'تعليم جيد ومجاني',
+    'industre_one_bio' => 'نؤمن أن كل شخص يجب أن يحصل على تعليم مجاني  وجيد بغض النظر عن جنسه أو اصله.',
+    'industre_two_title' => 'القضاء على الفقر وخلق فرص العمل',
+    'industre_two_bio' => 'نؤمن أن الجميع يجب أن يكونوا قادرين على العيش  عيشة كريمة ولديهم الحد الأدنى على الأقل من الدخل.',
+    'our_stories_title' => 'قصص المستفيدين',
+    'our_projects_title' => 'ماذا نبني الان',
+    'our_projects_bio' => 'هنا مجموعة من المشاريع التي نعمل عليها الان'
 
 ];

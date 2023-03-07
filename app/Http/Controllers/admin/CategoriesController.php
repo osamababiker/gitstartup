@@ -35,12 +35,12 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request){
+    public function update(Request $request, string $id){
         $request->validate([
             'en_name' => 'required|string',
             'ar_name' => 'required|string'
         ]);
-        $category = Category::findOrFail($request->category_id);
+        $category = Category::findOrFail($id);
         $category->en_name = $request->en_name;
         $category->ar_name = $request->ar_name;
         $category->sub_of = $request->sub_of;
@@ -51,8 +51,8 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request){
-        Category::findOrFail($request->category_id)->delete();
+    public function destroy(string $id){
+        Category::findOrFail($id)->delete();
         return redirect()->back()->with('feedback', 'category has been deleted');
     }
 }

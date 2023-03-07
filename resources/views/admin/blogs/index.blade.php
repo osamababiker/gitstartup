@@ -72,9 +72,9 @@
                               </div>
                               <div class="modal-body tab-content">
                                 <h3> Are you sure you want to delete this post ? </h3>
-                                <form autocomplete="off" id="deleteForm_{{ $blog->id }}" method="post" action="{{ route('admin.blogs.destroy') }}">
+                                <form autocomplete="off" id="deleteForm_{{ $blog->id }}" method="post" action="{{ route('admin.blogs.destroy', ['blog' => $blog->id]) }}">
                                   @csrf
-                                  <input type="hidden" name="blog_id" value="{{ $blog->id }}">
+                                  @method('DELETE')
                                   <button type="submit" form="deleteForm_{{ $blog->id }}" class="btn btn-primary">Yes sure</button>
                                   <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                                 </form>
@@ -92,9 +92,9 @@
                                 <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body tab-content">
-                                <form autocomplete="off" id="editForm_{{ $blog->id }}" method="post" action="{{ route('admin.blogs.update') }}"  enctype="multipart/form-data">
+                                <form autocomplete="off" id="editForm_{{ $blog->id }}" method="post" action="{{ route('admin.blogs.update', ['blog' => $blog->id]) }}"  enctype="multipart/form-data">
                                   @csrf
-                                  <input type="hidden" name="blog_id" value="{{ $blog->id }}">
+                                  @method('PUT')
                                   <div class="mb-3 mb-sm-4">
                                     <label for="en_title" class="form-label">Post title (english)</label>
                                     <input type="text" value="{{ $blog->en_title }}" name="en_title" class="form-control" id="en_title" placeholder="Enter post title in english">

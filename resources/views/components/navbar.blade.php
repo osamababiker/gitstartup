@@ -27,19 +27,19 @@
           <nav class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}">{{ __('home.nav_home') }}</a>
+                <a class="nav-link" href="{{ route('home') }}">{{ __('navbar.home_link') }}</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('about') }}">{{ __('navbar.about_link') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                <a class="nav-link" href="{{ route('projects.index') }}">{{ __('navbar.projects_link') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('projects.index') }}">Our Project</a>
+                <a class="nav-link" href="{{ route('blogs.index') }}">{{ __('navbar.blogs_link') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('blogs.index') }}">Brain Storming</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/#contact-us">Contact Us</a>
+                <a class="nav-link" href="/#contact-us">{{ __('navbar.contact_link') }}</a>
               </li> 
             </ul>
           </nav>

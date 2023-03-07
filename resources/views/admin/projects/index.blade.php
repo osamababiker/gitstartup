@@ -72,9 +72,9 @@
                               </div>
                               <div class="modal-body tab-content">
                                 <h3> Are you sure you want to delete this project ? </h3>
-                                <form autocomplete="off" id="deleteForm_{{ $project->id }}" method="post" action="{{ route('admin.projects.destroy') }}">
+                                <form autocomplete="off" id="deleteForm_{{ $project->id }}" method="post" action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}">
                                   @csrf
-                                  <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                  @method('DELETE')
                                   <button type="submit" form="deleteForm_{{ $project->id }}" class="btn btn-primary">Yes sure</button>
                                   <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                                 </form>
@@ -92,9 +92,9 @@
                                 <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body tab-content">
-                                <form autocomplete="off" method="post" id="editForm_{{ $project->id }}" action="{{ route('admin.projects.update') }}" enctype="multipart/form-data">
-                                  @csrf 
-                                  <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                <form autocomplete="off" method="post" id="editForm_{{ $project->id }}" action="{{ route('admin.projects.update', ['project' => $project->id]) }}" enctype="multipart/form-data">
+                                  @csrf
+                                  @method('PUT')
                                   <div class="mb-3 mb-sm-4">
                                     <label for="en_name" class="form-label">Project name (english)</label>
                                     <input type="text" value="{{ $project->en_name }}" class="form-control" id="en_name" name="en_name" placeholder="Enter project name in english">

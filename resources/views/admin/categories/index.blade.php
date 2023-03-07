@@ -78,9 +78,9 @@
                               </div>
                               <div class="modal-body tab-content">
                                 <h3> Are you sure you want to delete this category ? </h3>
-                                <form autocomplete="off" id="deleteForm_{{ $category->id }}" method="post" action="{{ route('admin.categories.destroy') }}">
+                                <form autocomplete="off" id="deleteForm_{{ $category->id }}" method="post" action="{{ route('admin.categories.destroy', ['category' => $category->id]) }}">
                                   @csrf
-                                  <input type="hidden" name="category_id" value="{{ $category->id }}">
+                                  @method('DELETE')
                                   <button type="submit" form="deleteForm_{{ $category->id }}" class="btn btn-primary">Yes sure</button>
                                   <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                                 </form>
@@ -98,9 +98,9 @@
                                 <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body tab-content">
-                                <form autocomplete="off" id="editForm_{{ $category->id }}" method="post" action="{{ route('admin.categories.update') }}">
+                                <form autocomplete="off" id="editForm_{{ $category->id }}" method="post" action="{{ route('admin.categories.update', ['category' => $category->id]) }}">
                                   @csrf
-                                  <input type="hidden" name="category_id" value="{{ $category->id }}">
+                                  @method('PUT')
                                   <div class="mb-3 mb-sm-4">
                                     <label for="en_name" class="form-label">Category name (english)</label>
                                     <input type="text" class="form-control" value="{{ $category->en_name }}" name="en_name" id="en_name" placeholder="Enter project name in english">

@@ -1,103 +1,94 @@
-@include('components/head')
-  <!-- Body-->
-  <body>
-    <!-- Page loading spinner-->
-    @include('components/loading')
-    <!-- Page wrapper-->
-    <main class="page-wrapper">
-      <!-- Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page-->
-      @include('components/navbar')
-      <!-- Page content-->
-      <!-- Hero-->
-      <section class="bg-dark position-relative py-5">
-        <div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(255,255,255, .02);"></div>
-        <div class="container dark-mode position-relative zindex-2 py-5 mb-4 mb-sm-5">
-          <div class="row pb-5 mb-2 mb-sm-0 mb-lg-3">
-            <div class="col-lg-10 col-xl-9">
-              <!-- Breadcrumb-->
-              <nav aria-label="breadcrumb">
-                <ol class="pt-lg-3 pb-lg-4 pb-2 breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">About us</li>
-                </ol>
-              </nav>
-              <h1 class="display-2 pb-2 pb-sm-3">We Build People-centered soluations</h1>
-              <ul class="list-unstyled d-flex flex-wrap mb-0">
-                <li class="d-flex py-1 me-4"><i class="ai-check-alt text-primary lead me-2"></i>Free high quality education</li>
-                <li class="d-flex py-1 me-4"><i class="ai-check-alt text-primary lead me-2"></i>Job creation and Zero Poverty</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- About-->
-      <section class="container position-relative zindex-3" style="margin-top: -135px;">
-        <div class="rounded-5 overflow-hidden"> 
-          <div class="jarallax ratio ratio-16x9" data-jarallax data-speed="0.6">
-            <div class="jarallax-img" style="background-image: url({{ asset('assets/img/about.jpg') }});"></div>
-          </div>
-        </div>
-        <div class="row pt-5 mt-n2 mt-sm-0 mt-md-2 mt-lg-4 mt-xl-5">
-          <div class="col-md-6 col-lg-5">
-            <div class="fs-sm text-uppercase mb-3">What we do</div>
-            <h2 class="display-6">We are a team of innovators who believe technology should solve our real-world problems</h2>
-          </div>
-          <div class="col-md-6 col-xl-5 offset-lg-1 offset-xl-2 pt-1 pt-sm-2 pt-md-5">
-            <p class="fs-xl">Git startup is a team of developers and entrepreneurs who believe technologies can have a big impact in solving our problems.</p>
-            <p class="fs-xl">We are trying to build solutions for two major issues, which are the <strong> equality of good education </strong> for everyone and the <strong> poverty problem </strong>  .</p>
-            <p class="fs-xl mb-0">and that through building software and small empowering small business that operates in those two fields .</p>
-          </div>
-        </div>
-      </section>
-      <!-- Approach-->
-      <section class="pt-5 mt-md-2 mt-xl-4 mt-xxl-5">
-        <div class="container pt-2 pt-sm-4 pt-lg-5 mt-xxl-2">
-          <div class="fs-sm text-uppercase mb-3">Our Mission</div>
-          <h2 class="display-6 pb-3 mb-lg-4">Mission and Objective </h2>
-        </div>
-      </section>
-      <!-- How we work (Steps)-->
-      <section class="container pt-5 mt-1 mt-sm-2 mt-xl-4 mt-xxl-5 mb-5">
-        <div class="row align-items-center pt-2 pt-sm-3 pt-md-4 pt-lg-5 mt-xl-2 mt-xxl-3">
-          <div class="col-md-6 col-xl-5 pb-3 pb-md-0 mb-4 mb-md-0">
-            <div class="ratio ratio-1x1 d-flex align-items-center position-relative rounded-circle overflow-hidden bg-size-cover mx-auto" style="max-width: 530px; background-image: url({{ asset('assets/img/about.jpg') }});">
-              <div class="bg-black position-absolute top-0 start-0 w-100 h-100 opacity-50"></div>
-              <div class="dark-mode position-relative zindex-2 p-4">
-                <div class="text-center mx-auto" style="max-width: 275px;"><span class="d-block fs-sm text-uppercase mb-3">How we major </span>
-                  <h2 class="display-6 mb-0">Our success</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-5 offset-xl-1">
-            <div class="ps-md-4 ps-xl-0">
-              <div class="steps steps-hoverable">
-                <div class="step py-3 py-xl-4">
-                  <div class="step-number">
-                    <div class="step-number-inner">01</div>
-                  </div>
-                  <div class="step-body">
-                    <h3 class="h5 pb-1 mb-2">Access to good Education</h3>
-                    <p class="mb-0">We believe everyone should have access to free high-quality education regardless there gender or origin .</p>
-                  </div>
-                </div>
-                <div class="step py-3 py-xl-4">
-                  <div class="step-number">
-                    <div class="step-number-inner">02</div>
-                  </div>
-                  <div class="step-body">
-                    <h3 class="h5 pb-1 mb-2">Zero Poverty</h3>
-                    <p class="mb-0">We believe everyone should be able to make living and have at least the minimum amount of income..</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Team-->
- 
+@extends('components/layout')
+@section('title', __('general.about_page') )
+@section('description', "Git Startup About page")
+@section('keywords', "Git startup ")
 
-    </main>
-    <!-- Footer-->
-    @include('components/footer')
+@section('content')
+  <!-- Page content-->
+  <!-- Hero-->
+  <section class="bg-dark position-relative py-5">
+    <div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(255,255,255, .02);"></div>
+    <div class="container dark-mode position-relative zindex-2 py-5 mb-4 mb-sm-5">
+      <div class="row pb-5 mb-2 mb-sm-0 mb-lg-3">
+        <div class="col-lg-10 col-xl-9">
+          <!-- Breadcrumb-->
+          <nav aria-label="breadcrumb">
+            <ol class="pt-lg-3 pb-lg-4 pb-2 breadcrumb">
+              <li class="breadcrumb-item"><a href="/">{{ __('navbar.home_link') }}</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{ __('navbar.about_link') }}</li>
+            </ol>
+          </nav>
+          <h1 class="display-2 pb-2 pb-sm-3">{{ __('about.hero_slogn') }}</h1>
+          <ul class="list-unstyled d-flex flex-wrap mb-0">
+            <li class="d-flex py-1 me-4"><i class="ai-check-alt text-primary lead me-2"></i>{{ __('about.hero_service_one') }}</li>
+            <li class="d-flex py-1 me-4"><i class="ai-check-alt text-primary lead me-2"></i>{{ __('about.hero_service_two') }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About-->
+  <section class="container position-relative zindex-3" style="margin-top: -135px;">
+    <div class="rounded-5 overflow-hidden"> 
+      <div class="jarallax ratio ratio-16x9" data-jarallax data-speed="0.6">
+        <div class="jarallax-img" style="background-image: url({{ asset('assets/img/about.jpg') }});"></div>
+      </div>
+    </div>
+    <div class="row pt-5 mt-n2 mt-sm-0 mt-md-2 mt-lg-4 mt-xl-5">
+      <div class="col-md-6 col-lg-5">
+        <div class="fs-sm text-uppercase mb-3">{{ __('about.who_we_are_label') }}</div>
+        <h2 class="display-6">{{ __('about.who_we_are_title') }}</h2>
+      </div>
+      <div class="col-md-6 col-xl-5 offset-lg-1 offset-xl-2 pt-1 pt-sm-2 pt-md-5">
+        <p class="fs-xl">{{ __('about.who_we_are_bio') }}</p>
+      </div>
+    </div>
+  </section>
+  <!-- Mission-->
+  <section class="pt-5 mt-md-2 mt-xl-4 mt-xxl-5">
+    <div class="container pt-2 pt-sm-4 pt-lg-5 mt-xxl-2">
+      <div class="fs-sm text-uppercase mb-3">{{ __('about.our_mission_label') }}</div>
+      <h2 class="display-6 pb-3 mb-lg-4">{{ __('about.our_mission_title') }}</h2>
+    </div>
+  </section>
+  <!-- How we work (Steps)-->
+  <section class="container pt-5 mt-1 mt-sm-2 mt-xl-4 mt-xxl-5 mb-5">
+    <div class="row align-items-center pt-2 pt-sm-3 pt-md-4 pt-lg-5 mt-xl-2 mt-xxl-3">
+      <div class="col-md-6 col-xl-5 pb-3 pb-md-0 mb-4 mb-md-0">
+        <div class="ratio ratio-1x1 d-flex align-items-center position-relative rounded-circle overflow-hidden bg-size-cover mx-auto" style="max-width: 530px; background-image: url({{ asset('assets/img/about.jpg') }});">
+          <div class="bg-black position-absolute top-0 start-0 w-100 h-100 opacity-50"></div>
+          <div class="dark-mode position-relative zindex-2 p-4">
+            <div class="text-center mx-auto" style="max-width: 275px;"><span class="d-block fs-sm text-uppercase mb-3"> {{ __('about.our_success_indicators_label') }} </span>
+              <h2 class="display-6 mb-0">{{ __('about.our_success_indicators_title') }}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-5 offset-xl-1">
+        <div class="ps-md-4 ps-xl-0">
+          <div class="steps steps-hoverable">
+            <div class="step py-3 py-xl-4">
+              <div class="step-number">
+                <div class="step-number-inner">01</div>
+              </div>
+              <div class="step-body">
+                <h3 class="h5 pb-1 mb-2">{{ __('about.success_indicators_title_one') }}</h3>
+                <p class="mb-0">{{ __('about.success_indicators_bio_one') }}</p>
+              </div>
+            </div>
+            <div class="step py-3 py-xl-4">
+              <div class="step-number">
+                <div class="step-number-inner">02</div>
+              </div>
+              <div class="step-body">
+                <h3 class="h5 pb-1 mb-2">{{ __('about.success_indicators_title_two') }}</h3>
+                <p class="mb-0">{{ __('about.success_indicators_bio_two') }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Team-->
+@endsection

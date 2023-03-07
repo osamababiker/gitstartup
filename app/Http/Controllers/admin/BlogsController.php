@@ -51,7 +51,7 @@ class BlogsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request){
+    public function update(Request $request, string $id){
         $request->validate([
             'en_title' => 'required|string',
             'ar_title' => 'required|string',
@@ -60,7 +60,7 @@ class BlogsController extends Controller
             'ar_description' => 'required',
         ]);
 
-        $blog = Blog::findOrFail($request->blog_id);
+        $blog = Blog::findOrFail($id);
 
         if($request->has('image')){
             if(file_exists(public_path('upload/blogs/'.$blog->image))){
@@ -86,8 +86,8 @@ class BlogsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request){
-        Blog::findOrFail($request->blog_id)->delete();
+    public function destroy(string $id){
+        Blog::findOrFail($id)->delete();
         return redirect()->back()->with('feedback', 'post has been deleted');
     }
 }
