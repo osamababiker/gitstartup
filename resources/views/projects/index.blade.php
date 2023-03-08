@@ -9,8 +9,8 @@
     <!-- Breadcrumb-->
     <nav aria-label="breadcrumb">
       <ol class="pt-lg-3 pb-lg-4 pb-2 breadcrumb">
-        <li class="breadcrumb-item"><a href="/"> {{ __('navbar.home_link') }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page"> {{ __('navbar.projects_link') }}</li>
+        <li class="breadcrumb-item {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' : ' breadcrumb-left-divider') }}"><a href="/"> {{ __('navbar.home_link') }}</a></li>
+        <li class="breadcrumb-item active {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' : ' breadcrumb-left-divider') }}" aria-current="page"> {{ __('navbar.projects_link') }}</li>
       </ol>
     </nav>
     <!-- Page title-->

@@ -7,7 +7,7 @@
       <div class="bg-black position-absolute top-0 start-0 w-100 h-100" style="opacity: 50%;"></div>
       <div class="container position-relative zindex-2 pt-md-3 pt-lg-4 pt-xl-5 pb-2">
         <div class="row pb-2">
-          <div class="col-lg-4 col-xxl-3 pb-2 pb-lg-0 mb-4 mb-lg-0">
+          <div class="col-lg-4 col-xxl-3 pb-2 pb-lg-0 mb-4 mb-lg-0 px-0">
             <div class="navbar-brand text-light py-0 me-0 pb-1 mb-3">
               {{ __('general.company_name') }}
               </div> 
@@ -17,25 +17,25 @@
               <button class="btn btn-primary rounded-pill" type="button">{{ __('footer.subscribe_button') }}</button>
             </div> 
           </div>
-          <div class="col-sm-4 col-lg-2 offset-lg-1 offset-xl-2 offset-xxl-3 mb-4 mb-sm-0">
+          <div class="col-sm-4 col-lg-2 offset-lg-1 mb-4 mb-sm-0 {{ (App::isLocale('ar') ?  ' offset-xr-2 offset-xxr-3' : ' offset-xl-2 offset-xxl-3') }}">
             <h6 class="fw-bold">{{ __('footer.useful_links') }}</h6>
-            <ul class="nav flex-column fs-sm">
+            <ul class="nav flex-column fs-sm px-0">
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="/">{{ __('navbar.home_link') }}</a></li>
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="{{ route('about') }}">{{ __('navbar.about_link') }}</a></li>
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="{{ route('projects.index') }}">{{ __('navbar.projects_link') }}</a></li>
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="{{ route('blogs.index') }}">{{ __('navbar.blogs_link') }}</a></li>
             </ul>
           </div>
-          <div class="col-sm-4 col-lg-2 mb-4 mb-sm-0">
+          <div class="col-sm-4 col-lg-2  mb-4 mb-sm-0">
             <h6 class="fw-bold">{{ __('footer.others_links') }}</h6>
-            <ul class="nav flex-column fs-sm">
+            <ul class="nav flex-column fs-sm px-0">
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="#">{{ __('footer.terms_link') }}</a></li>
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="#">{{ __('footer.privacy_link') }}</a></li>
             </ul>
           </div>
           <div class="col-sm-4 col-lg-3 col-xl-2">
             <h6 class="fw-bold">{{ __('footer.contact_us') }}</h6>
-            <ul class="nav flex-column fs-sm">
+            <ul class="nav flex-column fs-sm px-0">
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="mailto:email@example.com">email@example.com</a></li>
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="tel:+15262200459">+ 1 526 220 0459</a></li>
               <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="tel:+15262200444">+ 1 526 220 0444</a></li>

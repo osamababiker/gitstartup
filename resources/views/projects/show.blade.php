@@ -9,9 +9,9 @@
     <!-- Breadcrumb-->
     <nav aria-label="breadcrumb">
       <ol class="pt-lg-2 pb-lg-3 pb-1 breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="portfolio-list-v1.html">Projects</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Single project</li>
+        <li class="breadcrumb-item {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' : ' breadcrumb-left-divider') }}"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' : ' breadcrumb-left-divider') }}"><a href="portfolio-list-v1.html">Projects</a></li>
+        <li class="breadcrumb-item active{{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' : ' breadcrumb-left-divider') }}" aria-current="page">Single project</li>
       </ol>
     </nav>
     <!-- Page title-->

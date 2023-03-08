@@ -10,9 +10,9 @@
     <!-- Breadcrumb-->
     <nav aria-label="breadcrumb">
       <ol class="pt-lg-3 pb-lg-4 pb-2 breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="blog-list-sidebar.html">Blog</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Single post </li>
+        <li class="breadcrumb-item {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' :  ' breadcrumb-left-divider') }}"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' :  ' breadcrumb-left-divider') }}"><a href="blog-list-sidebar.html">Blog</a></li>
+        <li class="breadcrumb-item active {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' :  ' breadcrumb-left-divider') }}" aria-current="page">Single post </li>
       </ol>
     </nav>
     <div class="row">

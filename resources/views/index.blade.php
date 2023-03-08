@@ -15,15 +15,15 @@
         <div class="container position-relative zindex-2 pt-xl-4 pt-xxl-5 pb-sm-2">
           <div class="row pt-md-3 pt-lg-5">
             <div class="col-lg-6 col-xxl-5 pb-lg-5 mb-xl-5">
-              <h1 class="display-3 text-center text-lg-start mb-xxl-5"> {{ __('home.hero_slogan') }} </h1>
+              <h1 class="display-3 text-center mb-xxl-5 {{ (App::isLocale('ar') ? ' text-lg-end' : ' text-lg-start' ) }}"> {{ __('home.hero_slogan') }} </h1>
             </div>
             <div class="col-lg-5 col-xl-4 offset-lg-1 offset-xxl-2 d-flex flex-column pt-2 pt-md-4">
-              <p class="fs-xl text-center text-lg-start pb-2 pb-md-0 mb-4 mb-md-5">{{ __('home.hero_bio') }} </p>
+              <p class="fs-xl text-center pb-2 pb-md-0 mb-4 mb-md-5 {{ (App::isLocale('ar') ?  ' text-lg-end' :  ' text-lg-start') }}">{{ __('home.hero_bio') }} </p>
               <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start pb-3 pb-sm-5">
                 <a class="btn btn-lg btn-primary rounded-pill w-100 w-sm-auto me-sm-3 me-xl-4 mb-2 mb-sm-0" href="/contact-us">{{ __('home.hero_button') }}</a>
-                <a class="btn btn-lg btn-link text-white w-100 w-sm-auto px-2" href="/#our-projects">{{ __('home.hero_project_link') }}<i class="ai-arrow-right ms-2"></i></a></div>
-              <ul class="list-inline d-xl-flex text-center text-lg-start mt-auto mb-0 mb-sm-2">
-                <li class="d-inline-flex align-items-center text-nowrap pt-1"><i class="ai-heart-filled text-secondary  fs-xl me-2"></i> {{ __('home.hero_footer_text') }} </li>
+                <a class="btn btn-lg btn-link text-white w-100 w-sm-auto px-2" href="/#our-projects">{{ __('home.hero_project_link') }}<i class="{{ (App::isLocale('ar') ? 'ai-arrow-left me-2' : 'ai-arrow-right ms-2') }}"></i></a></div>
+                <ul class="list-inline d-xl-flex text-center mt-auto mb-0 mb-sm-2 {{ (App::isLocale('ar') ? ' text-lg-end' : ' text-lg-start') }}">
+                <li class="d-inline-flex align-items-center text-nowrap pt-1"><i class="ai-heart-filled text-secondary  fs-xl {{ (App::isLocale('ar') ? ' ms-2' : ' me-2') }}"></i> {{ __('home.hero_footer_text') }} </li>
               </ul>
             </div>
           </div>
@@ -93,8 +93,8 @@
         <div class="col-md-6 col-lg-5 pb-2 pb-lg-0 mb-4 mb-md-0">
           <div class="accordion accordion-alt" id="industries">
             <div class="accordion-item mb-n3 mb-lg-n2 mb-xl-1">
-              <h3 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-binded-content="#education-img" data-bs-target="#education" aria-expanded="true" aria-controls="education">{{ __('home.industre_one_title') }}</button>
+              <h3 class="accordion-header"> 
+                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }}" type="button" data-bs-toggle="collapse" data-binded-content="#education-img" data-bs-target="#education" aria-expanded="true" aria-controls="education">{{ __('home.industre_one_title') }}</button>
               </h3>
               <div class="accordion-collapse collapse show" id="education" data-bs-parent="#industries">
                 <div class="accordion-body">{{ __('home.industre_one_bio') }}</div>
@@ -102,7 +102,7 @@
             </div>
             <div class="accordion-item mb-n3 mb-lg-n2 mb-xl-1">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-binded-content="#jobs-img" data-bs-target="#jobs" aria-expanded="false" aria-controls="jobs">{{ __('home.industre_two_title') }} </button>
+                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }} collapsed" type="button" data-bs-toggle="collapse" data-binded-content="#jobs-img" data-bs-target="#jobs" aria-expanded="false" aria-controls="jobs">{{ __('home.industre_two_title') }} </button>
               </h3>
               <div class="accordion-collapse collapse" id="jobs" data-bs-parent="#industries">
                 <div class="accordion-body">{{ __('home.industre_two_bio') }}</div>
@@ -111,7 +111,7 @@
           </div>
         </div>
         <!-- Binded images-->
-        <div class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">
+        <div class="col-md-6 col-lg-7 col-xl-6 {{ (App::isLocale('ar') ? ' offset-xr-1' : ' offset-xl-1') }}">
           <div class="ps-lg-4 ps-xl-0">
             <div class="binded-content">
               <div class="binded-item active" id="education-img">
@@ -131,8 +131,8 @@
       <div class="container d-flex align-items-center justify-content-between pb-4 mb-sm-2 mb-md-3">
         <h2 class="h1 mb-0">{{ __('home.our_stories_title') }}</h2>
         <div class="d-flex">
-          <button class="btn btn-sm btn-icon btn-outline-primary rounded-circle" type="button" id="prev-skill"><i class="ai-arrow-left"></i></button>
-          <button class="btn btn-sm btn-icon btn-outline-primary rounded-circle ms-3" type="button" id="next-skill"><i class="ai-arrow-right"></i></button>
+          <button class="btn btn-sm btn-icon btn-outline-primary rounded-circle" type="button" id="prev-skill"><i class="{{ (App::isLocale('ar') ? 'ai-arrow-right' : 'ai-arrow-left' )}}"></i></button>
+          <button class="btn btn-sm btn-icon btn-outline-primary rounded-circle {{ (App::isLocale('ar') ? ' me-3' :  ' ms-3' ) }}" type="button" id="next-skill"><i class="{{ (App::isLocale('ar') ?  'ai-arrow-left' : 'ai-arrow-right' ) }}"></i></button>
         </div>
       </div>
       <!-- Swiper slider-->

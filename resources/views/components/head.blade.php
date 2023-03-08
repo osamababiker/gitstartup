@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+  lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+  dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}"
+>
   <head>
     <meta charset="utf-8">
     <title>Git Startup | @yield('title')</title>
@@ -41,7 +44,7 @@
     <!-- Import Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" id="google-font">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <!-- Vendor styles-->
     <link rel="stylesheet" media="screen" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}"/>
     <link rel="stylesheet" media="screen" href="{{ asset('assets/vendor/aos/dist/aos.css') }}"/>

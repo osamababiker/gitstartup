@@ -12,10 +12,10 @@
       <div class="row pb-5 mb-2 mb-sm-0 mb-lg-3">
         <div class="col-lg-10 col-xl-9">
           <!-- Breadcrumb-->
-          <nav aria-label="breadcrumb">
+          <nav aria-label="breadcrumb"> 
             <ol class="pt-lg-3 pb-lg-4 pb-2 breadcrumb">
-              <li class="breadcrumb-item"><a href="/">{{ __('navbar.home_link') }}</a></li>
-              <li class="breadcrumb-item active" aria-current="page">{{ __('navbar.about_link') }}</li>
+              <li class="breadcrumb-item  {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' : ' breadcrumb-left-divider') }}"><a href="/">{{ __('navbar.home_link') }}</a></li>
+              <li class="breadcrumb-item active {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' : ' breadcrumb-left-divider') }}" aria-current="page">{{ __('navbar.about_link') }}</li>
             </ol>
           </nav>
           <h1 class="display-2 pb-2 pb-sm-3">{{ __('about.hero_slogn') }}</h1>
