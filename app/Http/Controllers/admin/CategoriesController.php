@@ -11,10 +11,17 @@ class CategoriesController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        return view('admin.categories.index', [
+        return view('admin.categories.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    function create() {
+        return view('admin.categories.create', [
             'categories' => Category::all()
         ]);
-    }
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -30,6 +37,17 @@ class CategoriesController extends Controller
         $category->sub_of = $request->sub_of;
         $category->save();
         return redirect()->back()->with('feedback', 'category has been created');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id){
+        $category = Category::findOrFail($id);
+        return view('admin.categories.edit', [
+            'category' => $category,
+            'categories' => Category::all()
+        ]);
     }
 
     /**

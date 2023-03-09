@@ -14,9 +14,19 @@ class BlogsController extends Controller
     public function index(){
         return view('admin.blogs.index', [
             'blogs' => Blog::paginate(15),
-            'categories' => Category::all()
         ]);
     }
+
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    function create() {
+        return view('admin.blogs.create', [
+            'categories' => Category::all()
+        ]);
+    } 
+
 
     /**
      * Store a newly created resource in storage.
@@ -47,6 +57,17 @@ class BlogsController extends Controller
         return redirect()->back()->with('feedback', 'post has been created');
     }
 
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id){
+        $blog = Blog::findOrFail($id);
+        return view('admin.blogs.edit', [
+            'blog' => $blog,
+            'categories' => Category::all()
+        ]);
+    }
 
     /**
      * Update the specified resource in storage.

@@ -1,7 +1,7 @@
 @extends('components/layout')
 @section('title', __('general.home_page') )
 @section('description', "Git Startup home page")
-@section('keywords', "Git startup ")
+@section('keywords', "Git startup ") 
 
 @section('content')
     <!-- Page content--> 

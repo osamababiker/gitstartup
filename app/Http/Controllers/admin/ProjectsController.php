@@ -13,11 +13,18 @@ class ProjectsController extends Controller
      */
     public function index(){
         return view('admin.projects.index',[
-            'categories' => Category::all(),
             'projects' => Project::all()
         ]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    function create() {
+        return view('admin.projects.create', [
+            'categories' => Category::all()
+        ]);
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -55,6 +62,17 @@ class ProjectsController extends Controller
         return redirect()->back()->with('feedback', 'project has been created');
     }
 
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id){
+        $project = Project::findOrFail($id);
+        return view('admin.projects.edit', [
+            'project' => $project,
+            'categories' => Category::all()
+        ]);
+    }
 
     /**
      * Update the specified resource in storage.

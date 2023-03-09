@@ -13,8 +13,16 @@ class StoriesController extends Controller
      */
     public function index(){
         return view('admin.stories.index',[
-            'categories' => Category::all(),
             'stories' => Story::paginate(10)
+        ]);
+    }
+
+     /**
+     * Show the form for creating a new resource.
+     */
+    function create() {
+        return view('admin.stories.create', [
+            'categories' => Category::all()
         ]);
     }
 
@@ -46,6 +54,17 @@ class StoriesController extends Controller
         return redirect()->back()->with('feedback', 'story has been created');
     }
 
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id){
+        $story = Story::findOrFail($id);
+        return view('admin.stories.edit', [
+            'story' => $story,
+            'categories' => Category::all()
+        ]);
+    }
 
     /**
      * Update the specified resource in storage.

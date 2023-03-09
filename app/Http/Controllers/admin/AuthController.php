@@ -30,7 +30,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->intended('/admin');
         }
 
         $message = "Please check your data and try again";
@@ -44,20 +44,19 @@ class AuthController extends Controller
         return redirect('login');
     }
 
-    public function update(Request $request){
+    public function changePassword(Request $request){
         $request->validate([
-            'oldPassword' => 'required',
-            'newPassword' => 'required',
+            'current_password' => 'required',
+            'password' => 'required|confirmed',
         ]);
 
-        if(Auth::user()->password === Hash::make($request->oldPassword)){
-            $newPassword = Hash::make($request->newPassword);
+        if(Hash::check($request->current_password, Auth::user()->password)){
+            $newPassword = Hash::make($request->password);
             Auth::user()->password = $newPassword;
+            Auth::user()->save();
             return redirect()->back()->with('feedback', 'password has been updated successfully');
         }
-        
-        return redirect()->back()->with('feedback', 'the old password you entred is wrong !');
-        
+        return redirect()->back()->with('feedback', 'the current password, is wrong !');
     }
 
 
