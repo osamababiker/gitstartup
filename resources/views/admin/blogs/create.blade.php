@@ -36,12 +36,20 @@
                     <input type="file" name="image" class="form-control" id="image">
                     </div>
                     <div class="mb-3 mb-sm-4">
-                    <label for="en_description" class="form-label">Post description (english)</label>
-                    <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor"></textarea>
+                      <label for="en_content" class="form-label">Post content (english)</label>
+                      <textarea name="en_content" id="en_content" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                     </div>
                     <div class="mb-3 mb-sm-4">
-                    <label for="ar_description" class="form-label">Post description (arabic)</label>
-                    <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control tiny-editor"></textarea>
+                      <label for="ar_content" class="form-label">Post content (arabic)</label>
+                      <textarea name="ar_content" id="ar_content" cols="8" rows="8" class="form-control tiny-editor"></textarea>
+                    </div>
+                    <div class="mb-3 mb-sm-4">
+                      <label for="page_description" class="form-label">Page description</label>
+                      <textarea name="page_description" id="page_description" cols="8" rows="8" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3 mb-sm-4">
+                      <label for="page_key_words" class="form-label">Page key words</label>
+                      <textarea name="page_key_words" id="page_key_words" cols="8" rows="8" class="form-control"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Save Details</button>
                 </form>

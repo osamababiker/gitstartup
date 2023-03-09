@@ -38,12 +38,20 @@
                 <input type="file" name="image" class="form-control" id="image">
                 </div>
                 <div class="mb-3 mb-sm-4">
-                <label for="en_description" class="form-label">Post description (english)</label>
-                <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->en_description }}</textarea>
+                  <label for="en_description" class="form-label">Post description (english)</label>
+                  <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->en_description }}</textarea>
                 </div>
                 <div class="mb-3 mb-sm-4">
-                <label for="ar_description" class="form-label">Post description (arabic)</label>
-                <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->ar_description }}</textarea>
+                  <label for="ar_description" class="form-label">Post description (arabic)</label>
+                  <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->ar_description }}</textarea>
+                </div>
+                <div class="mb-3 mb-sm-4">
+                  <label for="page_description" class="form-label">Page description</label>
+                  <textarea name="page_description" id="page_description" cols="8" rows="8" class="form-control">{{ $blog->page_description }}</textarea>
+                </div>
+                <div class="mb-3 mb-sm-4">
+                  <label for="page_key_words" class="form-label">Page key words</label>
+                  <textarea name="page_key_words" id="page_key_words" cols="8" rows="8" class="form-control">{{ $blog->page_key_words }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Edit Details</button>
             </form>

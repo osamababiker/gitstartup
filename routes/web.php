@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\BlogsController as AdminBlogsController;
 use App\Http\Controllers\Admin\CategoriesController as AdminCategoriesController;
 use App\Http\Controllers\Admin\StoriesController as AdminStoriesController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
+use App\Http\Controllers\Admin\ContactsController as AdminContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,10 +36,13 @@ Route::post('/login',[AdminAuthController::class, 'login']);
 Route::get('/', [HomeController::class, 'index'])->name('home');
 /* ============ site about route ============== */
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+/* ============ site contact message route ============== */
+Route::post('/contact/message', [HomeController::class, 'postContactMessage'])->name('postContactMessage');
 /* ============ site projects route ============== */
 Route::resource('/projects', ProjectsController::class);
 /* ============ site blogs route ============== */
 Route::resource('/blogs', BlogsController::class);
+Route::post('/blogs/comments', [BlogsController::class, 'postComments'])->name('blogs.postComments');
 
 
 // admin routes
@@ -51,10 +55,13 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
     Route::resource('/categories', AdminCategoriesController::class, ['as' => 'admin']);
     /* ============ blogs route ============== */
     Route::resource('/blogs', AdminBlogsController::class, ['as' => 'admin']);
+    Route::post('/blogs/comments/destroy', [AdminBlogsController::class, 'destroyComments'])->name('admin.blogs.destroyComments');
     /*============== projects route ============== */
     Route::resource('/projects', AdminProjectsController::class, ['as' => 'admin']);
     /*============== stories route ============== */
     Route::resource('/stories', AdminStoriesController::class, ['as' => 'admin']);
+    /*============== contacts route ============== */
+    Route::resource('/messages', AdminContactsController::class, ['as' => 'admin']);
     /*============== auth route  ==================*/
     Route::post('/logout',[AdminAuthController::class, 'logout'])->name('logout');
     Route::post('/changePassword',[AdminAuthController::class, 'changePassword'])->name('changePassword');

@@ -2,7 +2,8 @@
 
     return [
         'page_title' => 'مشاريع نعمل عليها',
-        'page_bio' => ''
+        'page_bio' => '',
+        'more_projects' => 'مشاريع اخرى'
     ]
 
 ?>

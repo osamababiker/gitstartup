@@ -25,9 +25,8 @@
             @include('admin/components/feedback')
             <!-- Orders accordion-->
             <section class="card border-0 mb-4" id="tables-color-borders">
-              <div class="card-body pb-0 d-flex justify-content-between ">
-                <h2 class="h4 mb-n2">Blogs list</h2>
-                <a class="btn btn-light" target="_blank" href="{{ route('admin.blogs.create') }}" > <i class="ai-plus text-primary"></i> </a>
+              <div class="card-body pb-0">
+                <h2 class="h4 mb-n2">Messages list</h2>
               </div>
               <div class="card-body">
                 <div class="tab-content">
@@ -36,42 +35,40 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>Title</th>
-                      <th>Image</th>
-                      <th>Category</th>
-                      <th>Comments</th>
+                      <th>name</th>
+                      <th>email</th>
+                      <th>message</th>
+                      <th>Created at</th>
                       <th>Settings</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($blogs as $blog)
+                    @foreach($messages as $message)
                     <tr>
-                      <th scope="row">{{ $blog->id }}</th>
-                      <td>{{ $blog->en_title }}</td>
-                      <td> <img src="{{ asset('upload/blogs/' . $blog->image) }}" width="50" height="50" alt=""> </td>
-                      <td>{{ $blog->category->en_name }}</td>
-                      <td> <a target="_blank" href="{{ route('admin.blogs.show', ['blog' => $blog->id]) }}"> <i class="ai-messages text-primary"></i> </a> </td>
+                      <td>{{ $message->name }}</td>
+                      <td>{{ $message->email }}</td>
                       <td>
-                        <a  target="_blank" href="{{ route('admin.blogs.edit', ['blog' => $blog->id]) }}"> <i class="ai-edit-alt text-primary"></i> </a>
-                        &nbsp;&nbsp;
-                        <a type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $blog->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#messageModal_{{ $message->id }}" href="#"> <i class="ai-messages text-primary"></i> </a>
+                      </td>
+                      <td>{{ $message->created_at->diffForHumans() }}</td>
+                      <td>
+                        <a  type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $message->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
                       </td>
                     </tr>
                     <!-- Delete modal -->
-                    <div id="deleteModal_{{ $blog->id }}" class="modal" tabindex="-1" role="dialog">
+                    <div id="deleteModal_{{ $message->id }}" class="modal" tabindex="-1" role="dialog">
                       <div class="modal-dialog modal-lg"  role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h4> Delete Post </h4>
+                            <h4> Delete message </h4>
                             <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body tab-content">
-                            <h3> Are you sure you want to delete this post ? </h3>
-                            <form autocomplete="off" id="deleteForm_{{ $blog->id }}" method="post" action="{{ route('admin.blogs.destroy', ['blog' => $blog->id]) }}">
+                            <h3> Are you sure you want to delete this message ? </h3>
+                            <form autocomplete="off" id="deleteForm_{{ $message->id }}" method="post" action="{{ route('admin.messages.destroy', ['message' => $message->id]) }}">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" form="deleteForm_{{ $blog->id }}" class="btn btn-primary">Yes sure</button>
+                              <button type="submit" form="deleteForm_{{ $message->id }}" class="btn btn-primary">Yes sure</button>
                               <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                             </form>
                           </div>
@@ -79,19 +76,31 @@
                       </div>
                     </div>
                     <!-- End delete modal -->
+
+                    <!-- message modal -->
+                    <div id="messageModal_{{ $message->id }}" class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-lg"  role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body tab-content">
+                                    <p> {!! $message->message !!} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- message modal -->
                     @endforeach
                   </div>
                   </tbody>
-                  </table>
-                  </div>
+                </table>
+                </div>
                   </div>
                 </div>
               </div>
             </section>
             </div>
-
-            <!-- Pagination-->
-            {{ $blogs->links() }}
 
           </div>
         </div>

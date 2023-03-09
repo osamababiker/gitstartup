@@ -16,8 +16,11 @@ return new class extends Migration
             $table->string('en_title');
             $table->string('ar_title');
             $table->string('image');
-            $table->text('en_description');
-            $table->text('ar_description');
+            $table->text('en_content');
+            $table->text('ar_content');
+
+            $table->text('page_key_words');
+            $table->text('page_description');
 
             $table->unsignedBigInteger('sub_of');
             $table->foreign('sub_of')

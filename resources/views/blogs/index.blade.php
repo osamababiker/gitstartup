@@ -37,55 +37,28 @@
     <!-- Blog grid (masonry)-->
     <div class="masonry-grid mb-2 mb-md-4 pb-lg-3" data-columns="3">
       <!-- Blog item-->
+      @foreach($blogs as $blog)
       <article class="masonry-grid-item">
         <div class="card border-0 bg-secondary">
+          <a href="{{ route('blogs.show', ['blog' => $blog->id]) }}">
+            <img class="card-img-top" src="{{ asset('upload/blogs/' . $blog->image) }}" alt="Post image">
+          </a>
           <div class="card-body pb-4">
-            <div class="d-flex align-items-center mb-4 mt-n1"><span class="fs-sm text-muted">9 hours ago</span><span class="fs-xs opacity-20 mx-3">|</span><a class="badge text-nav fs-xs border" href="#">Brand strategy</a></div>
-            <h3 class="h4 card-title"><a href="blog-single-v1.html">Business strategy for a brand of vintage bags</a></h3>
-            <p class="card-text">Pharetra in morbi quis is massa maecenas arcu vulputate pulvinar elit non nullage a, duis tortor mi massa ipsum in eu eu eget libero pulvinar elit vulputate...</p>
+            <div class="d-flex align-items-center mb-4 mt-n1">
+              <span class="fs-sm text-muted">{{ $blog->created_at->diffForHumans() }}</span>
+              <span class="fs-xs opacity-20 mx-3">|</span>
+              <a class="badge text-nav fs-xs border" href="#">{{ (App::isLocale('ar') ? $blog->category->ar_name :  $blog->category->en_name ) }}</a>
+            </div>
+            <h3 class="h4 card-title"><a href="{{ route('blogs.show', ['blog' => $blog->id]) }}">{{ (App::isLocale('ar') ? $blog->ar_title :  $blog->en_title ) }}</a></h3>
+            <p class="card-text">
+              {!!  Str::substr((App::isLocale('ar') ? $blog->ar_content :  $blog->en_content ), 0, 150) !!}
+            </p>
           </div>
-          <div class="card-footer pt-3"><a class="d-flex align-items-center text-decoration-none pb-2" href="#"><img class="rounded-circle" src="assets/img/avatar/05.jpg" width="48" alt="Post author">
-              <h6 class="ps-3 mb-0">Darlene Robertson</h6></a></div>
         </div>
       </article>
-      <!-- Blog item-->
-      <article class="masonry-grid-item">
-        <div class="card border-0 bg-secondary"><a href="blog-single-v2.html"><img class="card-img-top" src="assets/img/blog/grid/01.jpg" alt="Post image"></a>
-          <div class="card-body pb-4">
-            <div class="d-flex align-items-center mb-4 mt-n1"><span class="fs-sm text-muted">12 hours ago</span><span class="fs-xs opacity-20 mx-3">|</span><a class="badge text-nav fs-xs border" href="#">Books</a></div>
-            <h3 class="h4 card-title"><a href="blog-single-v2.html">Top books for inspiration</a></h3>
-            <p class="card-text">Vulputate auctor lacus imperdiet facilisi tristique nisl pulvinar porta diam duis odio</p>
-          </div>
-          <div class="card-footer pt-3"><a class="d-flex align-items-center text-decoration-none pb-2" href="#"><img class="rounded-circle" src="assets/img/avatar/06.jpg" width="48" alt="Post author">
-              <h6 class="ps-3 mb-0">Jenny Wilson</h6></a></div>
-        </div>
-      </article>
-      <!-- Blog item-->
-      <article class="masonry-grid-item">
-        <div class="card border-0 bg-secondary"><a href="blog-single-v2.html"><img class="card-img-top" src="assets/img/blog/grid/01.jpg" alt="Post image"></a>
-          <div class="card-body pb-4">
-            <div class="d-flex align-items-center mb-4 mt-n1"><span class="fs-sm text-muted">12 hours ago</span><span class="fs-xs opacity-20 mx-3">|</span><a class="badge text-nav fs-xs border" href="#">Books</a></div>
-            <h3 class="h4 card-title"><a href="blog-single-v2.html">Top books for inspiration</a></h3>
-            <p class="card-text">Vulputate auctor lacus imperdiet facilisi tristique nisl pulvinar porta diam duis odio</p>
-          </div>
-          <div class="card-footer pt-3"><a class="d-flex align-items-center text-decoration-none pb-2" href="#"><img class="rounded-circle" src="assets/img/avatar/06.jpg" width="48" alt="Post author">
-              <h6 class="ps-3 mb-0">Jenny Wilson</h6></a></div>
-        </div>
-      </article>
+      @endforeach
     </div>
     <!-- Pagination-->
-    <div class="row gy-3 align-items-center mb-md-2 mb-xl-4">
-      <div class="col col-md-12 col-12 order-md-3 order-2">
-        <nav aria-label="Page navigation">
-          <ul class="pagination pagination-sm justify-content-end">
-            <li class="page-item active" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+    {{ $blogs->links() }}
   </div>
 @endsection

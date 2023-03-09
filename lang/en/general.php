@@ -19,6 +19,7 @@ return [
     'projects_page' => 'Our Projects',
     'blogs_page' => 'Our Blog',
     'company_slogan' => 'Accessible Education, Achievable Careers',
-    'loading' => 'Loading'
+    'loading' => 'Loading',
+    'read_more' => 'Read More'
 
 ];

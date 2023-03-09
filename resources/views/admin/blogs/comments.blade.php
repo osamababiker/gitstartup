@@ -8,26 +8,14 @@
       @include('admin/components/sidebar')
       <!-- Page content-->
       <div class="col-lg-9 pt-4 pb-2 pb-sm-4">
-        <div class="d-flex align-items-center mb-4">
-          <select class="form-select ms-auto" style="max-width: 200px;">
-            <option value="All tme">For all time</option>
-            <option value="Last week">Last week</option>
-            <option value="Last month">Last month</option>
-            <option value="Last month">Last month</option>
-            <option value="In progress">In progress</option>
-            <option value="Canceled">Canceled</option>
-            <option value="Delivered">Delivered</option>
-          </select>
-        </div>
         <div class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4">
           <div class="card-body pb-4">
             <!-- Feedback -->
             @include('admin/components/feedback')
             <!-- Orders accordion-->
             <section class="card border-0 mb-4" id="tables-color-borders">
-              <div class="card-body pb-0 d-flex justify-content-between ">
-                <h2 class="h4 mb-n2">Blogs list</h2>
-                <a class="btn btn-light" target="_blank" href="{{ route('admin.blogs.create') }}" > <i class="ai-plus text-primary"></i> </a>
+              <div class="card-body pb-0">
+                <h2 class="h4 mb-n2">Comments list</h2>
               </div>
               <div class="card-body">
                 <div class="tab-content">
@@ -36,42 +24,40 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>Title</th>
-                      <th>Image</th>
-                      <th>Category</th>
-                      <th>Comments</th>
+                      <th>Post Title</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Comment</th>
                       <th>Settings</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($blogs as $blog)
+                    @foreach($comments as $comment)
                     <tr>
-                      <th scope="row">{{ $blog->id }}</th>
-                      <td>{{ $blog->en_title }}</td>
-                      <td> <img src="{{ asset('upload/blogs/' . $blog->image) }}" width="50" height="50" alt=""> </td>
-                      <td>{{ $blog->category->en_name }}</td>
-                      <td> <a target="_blank" href="{{ route('admin.blogs.show', ['blog' => $blog->id]) }}"> <i class="ai-messages text-primary"></i> </a> </td>
+                      <td>{{ $comment->blog->en_title }}</td>
+                      <td>{{ $comment->name }}</td>
+                      <td>{{ $comment->email }}</td>
                       <td>
-                        <a  target="_blank" href="{{ route('admin.blogs.edit', ['blog' => $blog->id]) }}"> <i class="ai-edit-alt text-primary"></i> </a>
-                        &nbsp;&nbsp;
-                        <a type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $blog->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#commentModal_{{ $comment->id }}" href="#"> <i class="ai-dots-vertical text-primary"></i> </a>
+                      </td>
+                      <td>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $comment->id }}" href="#"> <i class="ai-trash  text-primary"></i> </a>
                       </td>
                     </tr>
                     <!-- Delete modal -->
-                    <div id="deleteModal_{{ $blog->id }}" class="modal" tabindex="-1" role="dialog">
+                    <div id="deleteModal_{{ $comment->id }}" class="modal" tabindex="-1" role="dialog">
                       <div class="modal-dialog modal-lg"  role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h4> Delete Post </h4>
+                            <h4> Delete comment </h4>
                             <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body tab-content">
-                            <h3> Are you sure you want to delete this post ? </h3>
-                            <form autocomplete="off" id="deleteForm_{{ $blog->id }}" method="post" action="{{ route('admin.blogs.destroy', ['blog' => $blog->id]) }}">
+                            <h3> Are you sure you want to delete this comment ? </h3>
+                            <form autocomplete="off" id="deleteForm_{{ $comment->id }}" method="post" action="{{ route('admin.blogs.destroyComments') }}">
                               @csrf
-                              @method('DELETE')
-                              <button type="submit" form="deleteForm_{{ $blog->id }}" class="btn btn-primary">Yes sure</button>
+                              <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                              <button type="submit" form="deleteForm_{{ $comment->id }}" class="btn btn-primary">Yes sure</button>
                               <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                             </form>
                           </div>
@@ -79,6 +65,21 @@
                       </div>
                     </div>
                     <!-- End delete modal -->
+
+                    <!-- Comment modal -->
+                    <div id="commentModal_{{ $comment->id }}" class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-lg"  role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body tab-content">
+                                    <p> {!! $comment->comment !!} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Comment modal -->
                     @endforeach
                   </div>
                   </tbody>
@@ -91,8 +92,9 @@
             </div>
 
             <!-- Pagination-->
-            {{ $blogs->links() }}
+            {{ $comments->links() }}
 
+            
           </div>
         </div>
       </div>

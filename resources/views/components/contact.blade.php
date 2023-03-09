@@ -5,20 +5,21 @@
       <div class="col-lg-5 mb-5 mb-lg-0">
         <h2 class="h1">{{ __('contact.contact_us_title') }}</h2>
         <p class="pb-1 pb-md-0 mb-4 mb-md-5">{{ __('contact.contact_us_bio') }}</p>
-        <form class="needs-validation row g-4" novalidate>
+        <form class="needs-validation row g-4" novalidate method="post" action="{{ route('postContactMessage') }}">
+          @csrf
           <div class="col-lg-10">
             <label class="form-label fs-base" for="name">{{ __('contact.input_name_label') }}</label>
-            <input class="form-control form-control-lg" type="text" placeholder="{{ __('contact.input_name_placeholder') }}" required id="name">
+            <input class="form-control form-control-lg" name="name" type="text" placeholder="{{ __('contact.input_name_placeholder') }}" required id="name">
             <div class="invalid-feedback">Please enter your name!</div>
           </div>
           <div class="col-lg-10">
             <label class="form-label fs-base" for="email">{{ __('contact.input_email_label') }}</label>
-            <input class="form-control form-control-lg" type="email" placeholder="{{ __('contact.input_email_placeholder') }}" required id="email">
+            <input class="form-control form-control-lg" name="email" type="email" placeholder="{{ __('contact.input_email_placeholder') }}" required id="email">
             <div class="invalid-feedback">Please provide a valid email address!</div>
           </div>
           <div class="col-lg-10">
             <label class="form-label fs-base" for="message">{{ __('contact.input_message_label') }}</label>
-            <textarea class="form-control form-control-lg" placeholder="{{ __('contact.input_message_placeholder') }}" rows="4" required id="message"></textarea>
+            <textarea class="form-control form-control-lg" name="message" placeholder="{{ __('contact.input_message_placeholder') }}" rows="4" required id="message"></textarea>
             <div class="invalid-feedback">Please write your message!</div>
           </div>
           <div class="col-lg-10">

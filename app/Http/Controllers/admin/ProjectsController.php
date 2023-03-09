@@ -37,7 +37,9 @@ class ProjectsController extends Controller
             'logo' => 'required',
             'image' => 'required',
             'en_description' => 'required|string',
-            'ar_description' => 'required|string'
+            'ar_description' => 'required|string',
+            'page_description' => 'required',
+            'page_key_words' => 'required'
         ]);
         $project = new Project();
         if($request->has('logo')){
@@ -57,6 +59,8 @@ class ProjectsController extends Controller
         $project->ar_description = $request->ar_description;
         $project->logo = $logo_name;
         $project->image = $image_name;
+        $project->page_description = $request->page_description;
+        $project->page_key_words = $request->page_key_words;
         $project->save();
 
         return redirect()->back()->with('feedback', 'project has been created');
@@ -83,7 +87,9 @@ class ProjectsController extends Controller
             'ar_name' => 'required|string',
             'sub_of' => 'required',
             'en_description' => 'required|string',
-            'ar_description' => 'required|string'
+            'ar_description' => 'required|string',
+            'page_description' => 'required',
+            'page_key_words' => 'required',
         ]);
         $project = Project::findOrFail($id);
         if($request->has('logo')){
@@ -113,6 +119,8 @@ class ProjectsController extends Controller
         $project->ar_description = $request->ar_description;
         $project->logo = $logo_name;
         $project->image = $image_name;
+        $project->page_description = $request->page_description;
+        $project->page_key_words = $request->page_key_words;
         $project->save();
 
         return redirect()->back()->with('feedback', 'project has been updated');

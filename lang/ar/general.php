@@ -19,6 +19,7 @@ return [
     'projects_page' => 'مشاريعنا',
     'blogs_page' => 'مدونتنا',
     'company_slogan' => 'تعليم جيد وفرص عمل للجميع',
-    'loading' => 'جاري التحميل'
+    'loading' => 'جاري التحميل',
+    'read_more' => 'اقرأ المزيد'
 
 ];
