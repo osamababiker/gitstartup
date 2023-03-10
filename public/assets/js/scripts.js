@@ -6,3 +6,5 @@ function changeLang() {
 function logout (){
     document.getElementById('logoutForm').submit();
 }
+
+

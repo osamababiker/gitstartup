@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\BlogsController as AdminBlogsController;
 use App\Http\Controllers\Admin\CategoriesController as AdminCategoriesController;
 use App\Http\Controllers\Admin\StoriesController as AdminStoriesController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
-use App\Http\Controllers\Admin\ContactsController as AdminContactsController;
+use App\Http\Controllers\Admin\MessagesController as AdminMessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
     /*============== stories route ============== */
     Route::resource('/stories', AdminStoriesController::class, ['as' => 'admin']);
     /*============== contacts route ============== */
-    Route::resource('/messages', AdminContactsController::class, ['as' => 'admin']);
+    Route::resource('/messages', AdminMessagesController::class, ['as' => 'admin']);
     /*============== auth route  ==================*/
     Route::post('/logout',[AdminAuthController::class, 'logout'])->name('logout');
     Route::post('/changePassword',[AdminAuthController::class, 'changePassword'])->name('changePassword');

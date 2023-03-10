@@ -1,6 +1,12 @@
 <!-- contact us section -->
 <section class="bg-secondary pt-5 pb-4" id="contact-us"> 
   <div class="container py-lg-2 py-xl-4 py-xxl-5">
+    @if(session()->has('feedback'))
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+          {{session()->get('feedback')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
     <div class="row mt-1 pt-sm-2 pt-md-3 pt-lg-4">
       <div class="col-lg-5 mb-5 mb-lg-0">
         <h2 class="h1">{{ __('contact.contact_us_title') }}</h2>

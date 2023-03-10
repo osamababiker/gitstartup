@@ -20,7 +20,7 @@
             <div class="col-lg-5 col-xl-4 offset-lg-1 offset-xxl-2 d-flex flex-column pt-2 pt-md-4">
               <p class="fs-xl text-center pb-2 pb-md-0 mb-4 mb-md-5 {{ (App::isLocale('ar') ?  ' text-lg-end' :  ' text-lg-start') }}">{{ __('home.hero_bio') }} </p>
               <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start pb-3 pb-sm-5">
-                <a class="btn btn-lg btn-primary rounded-pill w-100 w-sm-auto me-sm-3 me-xl-4 mb-2 mb-sm-0" href="/contact-us">{{ __('home.hero_button') }}</a>
+                <a class="btn btn-lg btn-primary rounded-pill w-100 w-sm-auto me-sm-3 me-xl-4 mb-2 mb-sm-0" href="#contact-us">{{ __('home.hero_button') }}</a>
                 <a class="btn btn-lg btn-link text-white w-100 w-sm-auto px-2" href="/#our-projects">{{ __('home.hero_project_link') }}<i class="{{ (App::isLocale('ar') ? 'ai-arrow-left me-2' : 'ai-arrow-right ms-2') }}"></i></a></div>
                 <ul class="list-inline d-xl-flex text-center mt-auto mb-0 mb-sm-2 {{ (App::isLocale('ar') ? ' text-lg-end' : ' text-lg-start') }}">
                 <li class="d-inline-flex align-items-center text-nowrap pt-1"><i class="ai-heart-filled text-secondary  fs-xl {{ (App::isLocale('ar') ? ' ms-2' : ' me-2') }}"></i> {{ __('home.hero_footer_text') }} </li>
@@ -148,13 +148,15 @@
           }">
           <div class="swiper-wrapper text-center">
             <!-- Item-->
+            @foreach($stories as $story)
             <div class="swiper-slide w-sm-auto h-auto">
               <div class="card border-0 bg-secondary h-100">
                 <div class="card-body mx-auto" style="max-width: 416px;">
-                  <p class="fs-lg mb-1">"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris tincidunt imperdiet hendrerit. Fusce tortor turpis, facilisis ac efficitur eget, aliquet ut odio. Curabitur in vestibulum tellus."</p>
+                  <p class="fs-lg mb-1">{!! (App::isLocale('ar') ? $story->ar_content :  $story->en_content ) !!}</p>
                 </div>
               </div>
             </div>
+            @endforeach
           </div>
         </div>
       </div>
@@ -165,17 +167,22 @@
       <h2 class="h1 text-center">{{ __('home.our_projects_title') }}</h2>
       <p class="pb-4 mb-md-2 mb-lg-3 text-center">{{ __('home.our_projects_bio') }} </p>
       <!-- Item-->
+      @foreach($projects as $project)
       <div class="row align-items-center pt-xl-2 pb-5 mb-lg-2 mb-xl-3 mb-xxl-4">
-        <div class="col-md-7 col-lg-6 mb-4 mb-md-0"><a class="d-block position-relative" href="portfolio-single-v1.html">
-            <div class="bg-info rounded-5 position-absolute top-0 start-0 w-100 h-100" data-aos="zoom-in" data-aos-duration="600" data-aos-offset="250"></div>
-            <img class="d-block position-relative zindex-2 mx-auto" src="{{ asset('assets/img/06.png') }}" width="636" alt="Image" data-aos="fade-in" data-aos-duration="400" data-aos-offset="250"></a></div>
+        <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
+          <a class="d-block position-relative" href="{{ route('projects.show', ['project' => $project->id]) }}">
+            <img class="d-block position-relative zindex-2 mx-auto" src="{{ asset('upload/projects/'. $project->image) }}" width="636" alt="Image" data-aos="fade-in" data-aos-duration="400" data-aos-offset="250">
+          </a>
+        </div>
         <div class="col-md-5 col-xl-4 offset-lg-1" data-aos="fade-up" data-aos-duration="400" data-aos-offset="170">
           <div class="ps-md-3 ps-lg-0">
-            <h2 class="h4">Development of an application for a national bank</h2>
-            <p class="fs-sm pb-3 pb-lg-4 mb-3">Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque sit commodo dignissim.</p><a class="btn btn-sm btn-outline-dark rounded-pill" href="portfolio-single-v1.html">Become Partner</a>
+            <h2 class="h4">{{ (App::isLocale('ar') ? $project->ar_name :  $project->en_name ) }}</h2>
+            <p class="fs-sm pb-3 pb-lg-4 mb-3"> {!!  Str::substr((App::isLocale('ar') ? $project->ar_description :  $project->en_description ), 0, 150) !!} </p>
+            <a class="btn btn-sm btn-outline-dark rounded-pill" href="{{ route('projects.show', ['project' => $project->id]) }}">{{ __('home.our_projects_btn') }}</a>
           </div>
         </div>
       </div>
+      @endforeach
 
     </section>
 

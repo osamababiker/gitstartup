@@ -38,12 +38,12 @@
                 <input type="file" name="image" class="form-control" id="image">
                 </div>
                 <div class="mb-3 mb-sm-4">
-                  <label for="en_description" class="form-label">Post description (english)</label>
-                  <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->en_description }}</textarea>
+                  <label for="en_content" class="form-label">Post content (english)</label>
+                  <textarea name="en_content" id="en_content" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->en_content }}</textarea>
                 </div>
                 <div class="mb-3 mb-sm-4">
-                  <label for="ar_description" class="form-label">Post description (arabic)</label>
-                  <textarea name="ar_description" id="ar_description" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->ar_description }}</textarea>
+                  <label for="ar_content" class="form-label">Post content (arabic)</label>
+                  <textarea name="ar_content" id="ar_content" cols="8" rows="8" class="form-control tiny-editor">{{ $blog->ar_content }}</textarea>
                 </div>
                 <div class="mb-3 mb-sm-4">
                   <label for="page_description" class="form-label">Page description</label>

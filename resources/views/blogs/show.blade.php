@@ -54,7 +54,7 @@
           </div>
           @endforeach
           <!-- Comment form-->
-          <div class="card border-0 bg-secondary pt-2 p-md-2 p-xl-3 p-xxl-4 mt-n3 mt-md-0">
+          <div class="card border-0 bg-secondary pt-2 p-md-2 p-xl-3 p-xxl-4 mt-n3 mt-md-0 mb-5">
             <div class="card-body">
               @if(session()->has('feedback'))
                 <div class="alert alert-info alert-dismissible fade show" role="alert">

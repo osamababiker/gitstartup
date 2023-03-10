@@ -22,6 +22,7 @@ return [
     'industre_two_bio' => 'We believe everyone should be able to make living and have at least the minimum amount of income.',
     'our_stories_title' => 'Beneficiary stories',
     'our_projects_title' => 'What we\'re building now',
-    'our_projects_bio' => 'below is a list of the projects that we work on'
+    'our_projects_bio' => 'below some of the projects that we work on',
+    'our_projects_btn' => 'Read more'
 
 ];

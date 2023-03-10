@@ -36,14 +36,18 @@
           <div class="col-sm-4 col-lg-3 col-xl-2">
             <h6 class="fw-bold">{{ __('footer.contact_us') }}</h6>
             <ul class="nav flex-column fs-sm px-0">
-              <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="mailto:email@example.com">email@example.com</a></li>
-              <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="tel:+15262200459">+ 1 526 220 0459</a></li>
-              <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="tel:+15262200444">+ 1 526 220 0444</a></li>
+              <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="mailto:{{ $settings->primary_email }}">{{ $settings->primary_email }}</a></li>
+              <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="tel:{{ $settings->primary_phone }}">{{ $settings->primary_phone }}</a></li>
+              <li class="nav-item"><a class="nav-link fw-normal px-0 py-1" href="tel:{{ $settings->secondary_phone }}">{{ $settings->secondary_phone }}</a></li>
             </ul>
           </div>
         </div>
         <div class="d-sm-flex align-items-center justify-content-between pt-4 pt-md-5 mt-2 mt-md-0 mt-lg-2 mt-xl-4">
-          <div class="d-flex justify-content-center order-sm-2 me-md-n2"><a class="btn btn-icon btn-sm btn-secondary btn-instagram rounded-circle mx-2" href="#"><i class="ai-instagram"></i></a><a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle mx-2" href="#"><i class="ai-facebook"></i></a><a class="btn btn-icon btn-sm btn-secondary btn-linkedin rounded-circle mx-2" href="#"><i class="ai-linkedin"></i></a></div>
+          <div class="d-flex justify-content-center order-sm-2 me-md-n2">
+            <a class="btn btn-icon btn-sm btn-secondary btn-instagram rounded-circle mx-2" href="{{ $settings->instagram_link }}"><i class="ai-instagram"></i></a>
+            <a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle mx-2" href="{{ $settings->facebook_link }}"><i class="ai-facebook"></i></a>
+            <a class="btn btn-icon btn-sm btn-secondary btn-linkedin rounded-circle mx-2" href="{{ $settings->linkedin_link }}"><i class="ai-linkedin"></i></a>
+          </div>
           <p class="fs-sm order-sm-1 text-center text-sm-start pt-4 pt-sm-0 mb-0 me-4"><span class="opacity-70"> {{ __('footer.copy_right_text') }} &copy; {{ __('general.company_name') }}</span></p>
         </div>
       </div>

@@ -92,8 +92,8 @@ class BlogsController extends Controller
             'en_title' => 'required|string',
             'ar_title' => 'required|string',
             'sub_of' => 'required',
-            'en_description' => 'required',
-            'ar_description' => 'required',
+            'en_content' => 'required',
+            'ar_content' => 'required',
             'page_description' => 'required',
             'page_key_words' => 'required',
         ]);

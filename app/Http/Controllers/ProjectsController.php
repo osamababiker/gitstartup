@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Settings;
+
+
 class ProjectsController extends Controller
 {
     /**
@@ -11,7 +14,8 @@ class ProjectsController extends Controller
      */
     public function index(){
         return view('projects/index', [
-            'projects' => Project::all()
+            'projects' => Project::all(),
+            'settings' => Settings::first()
         ]);
     }
 

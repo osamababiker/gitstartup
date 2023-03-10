@@ -55,7 +55,6 @@
         @foreach($projects as $project)
         <div class="swiper-slide">
           <a class="d-block position-relative" href="{{ route('projects.show', ['project' => $project->id]) }}">
-            <div class="bg-info rounded-5 position-absolute top-0 start-0 w-100 h-100"></div>
             <img class="d-block position-relative zindex-2 mx-auto" src="assets/img/portfolio/list/06.png" width="636" alt="Image">
           </a>
           <div class="pt-4 mt-sm-2">

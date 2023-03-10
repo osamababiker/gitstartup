@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Comment;
+use App\Models\Settings;
+use App;
 
 class BlogsController extends Controller
 {
@@ -14,7 +16,8 @@ class BlogsController extends Controller
      */
     public function index(){
         return view('blogs/index', [
-            'blogs' => Blog::paginate(10)
+            'blogs' => Blog::paginate(10),
+            'settings' => Settings::first()
         ]);
     }
 
@@ -48,7 +51,7 @@ class BlogsController extends Controller
         $comment->comment = $request->comment;
         $comment->save();
 
-        session()->get('locale') == 'en' ? $message = 'Your comment has been posted' : $message = 'تم اضافة تعليقك بنجاح';
+        App::isLocale('en') ? $message = 'Your comment has been posted' : $message = 'تم اضافة تعليقك بنجاح';
         return redirect()->back()->with('feedback', $message);
     }
 

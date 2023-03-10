@@ -20,7 +20,6 @@
     <div class="row align-items-center pt-xl-2 pb-5 mb-lg-2 mb-xl-3 mb-xxl-4">
       <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
         <a class="d-block position-relative" href="{{ route('projects.show', ['project' => $project->id]) }}">
-          <div class="bg-warning rounded-5 position-absolute top-0 start-0 w-100 h-100" data-aos="zoom-in" data-aos-duration="600" data-aos-offset="250"></div>
           <img class="d-block position-relative zindex-2 ms-auto" src="{{ asset('upload/projects/' . $project->image) }}" width="636" alt="Image" data-aos="fade-in" data-aos-duration="400" data-aos-offset="250">
         </a>
       </div>
