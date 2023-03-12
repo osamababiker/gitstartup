@@ -20,7 +20,9 @@ class HomeController extends Controller
     }
 
     public function about(){
-        return view('about');
+        return view('about', [
+            'settings' => Settings::first()
+        ]);
     }
 
     public function postContactMessage(Request $request){

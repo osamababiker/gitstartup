@@ -18,7 +18,7 @@ return [
     'about_page' => 'About Us',
     'projects_page' => 'Our Projects',
     'blogs_page' => 'Our Blog',
-    'company_slogan' => 'Accessible Education, Achievable Careers',
+    'company_slogan' => 'Tech Support for your startup idea', 
     'loading' => 'Loading',
     'read_more' => 'Read More'
 

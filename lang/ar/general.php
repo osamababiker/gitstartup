@@ -18,7 +18,7 @@ return [
     'about_page' => 'عن جيت',
     'projects_page' => 'مشاريعنا',
     'blogs_page' => 'مدونتنا',
-    'company_slogan' => 'تعليم جيد وفرص عمل للجميع',
+    'company_slogan' => 'دعم تقني لفكرتك الناشئة',
     'loading' => 'جاري التحميل',
     'read_more' => 'اقرأ المزيد'
 

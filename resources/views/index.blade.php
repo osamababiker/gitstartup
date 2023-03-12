@@ -11,13 +11,13 @@
         <div class="jarallax position-absolute top-0 start-0 w-100 h-100" data-jarallax data-speed="0.6">
           <div class="jarallax-img position-absolute w-100" style="background-image: url({{ asset('assets/img/pexels-bg.jpg') }});"></div>
         </div>
-        <div class="bg-black position-absolute top-0 start-0 w-100 h-100" style="opacity: 60%;"></div>
+        <div class="bg-black position-absolute top-0 start-0 w-100 h-100" style="opacity: 60%;"></div> 
         <div class="container position-relative zindex-2 pt-xl-4 pt-xxl-5 pb-sm-2">
           <div class="row pt-md-3 pt-lg-5">
-            <div class="col-lg-6 col-xxl-5 pb-lg-5 mb-xl-5">
+            <div class="col-lg-6 col-xxl-5 pb-lg-5 mb-xl-5 {{ (App::isLocale('ar') ?  ' offset-lg-1 offset-xxl-2' :  '') }}">
               <h1 class="display-3 text-center mb-xxl-5 {{ (App::isLocale('ar') ? ' text-lg-end' : ' text-lg-start' ) }}"> {{ __('home.hero_slogan') }} </h1>
             </div>
-            <div class="col-lg-5 col-xl-4 offset-lg-1 offset-xxl-2 d-flex flex-column pt-2 pt-md-4">
+            <div class="col-lg-5 col-xl-4 d-flex flex-column pt-2 pt-md-4 {{ (App::isLocale('ar') ?  '' :  ' offset-lg-1 offset-xxl-2') }}">
               <p class="fs-xl text-center pb-2 pb-md-0 mb-4 mb-md-5 {{ (App::isLocale('ar') ?  ' text-lg-end' :  ' text-lg-start') }}">{{ __('home.hero_bio') }} </p>
               <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start pb-3 pb-sm-5">
                 <a class="btn btn-lg btn-primary rounded-pill w-100 w-sm-auto me-sm-3 me-xl-4 mb-2 mb-sm-0" href="#contact-us">{{ __('home.hero_button') }}</a>
@@ -94,9 +94,9 @@
           <div class="accordion accordion-alt" id="industries">
             <div class="accordion-item mb-n3 mb-lg-n2 mb-xl-1">
               <h3 class="accordion-header"> 
-                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }}" type="button" data-bs-toggle="collapse" data-binded-content="#education-img" data-bs-target="#education" aria-expanded="true" aria-controls="education">{{ __('home.industre_one_title') }}</button>
+                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }}" type="button" data-bs-toggle="collapse" data-binded-content="#startups-img" data-bs-target="#startups" aria-expanded="true" aria-controls="startups">{{ __('home.industre_one_title') }}</button>
               </h3>
-              <div class="accordion-collapse collapse show" id="education" data-bs-parent="#industries">
+              <div class="accordion-collapse collapse show" id="startups" data-bs-parent="#industries">
                 <div class="accordion-body">{{ __('home.industre_one_bio') }}</div>
               </div>
             </div>
@@ -114,8 +114,8 @@
         <div class="col-md-6 col-lg-7 col-xl-6 {{ (App::isLocale('ar') ? ' offset-xr-1' : ' offset-xl-1') }}">
           <div class="ps-lg-4 ps-xl-0">
             <div class="binded-content">
-              <div class="binded-item active" id="education-img">
-                <img class="rounded-5" src="{{ asset('assets/img/industries/01.jpg') }}" alt="Free education ">
+              <div class="binded-item active" id="startups-img">
+                <img class="rounded-5" src="{{ asset('assets/img/industries/01.jpg') }}" alt="Startups ">
               </div>
               <div class="binded-item" id="jobs-img">
                 <img class="rounded-5" src="{{ asset('assets/img/industries/02.jpg') }}" alt="Job creation">
@@ -126,10 +126,10 @@
       </div>
     </section>
 
-    <!-- Beneficiary stories (Carousel)-->
+    <!-- technologies (Carousel)-->
     <section class="pt-2 py-md-4 py-lg-5 mt-2 mt-xl-4 mt-xxl-5">
       <div class="container d-flex align-items-center justify-content-between pb-4 mb-sm-2 mb-md-3">
-        <h2 class="h1 mb-0">{{ __('home.our_stories_title') }}</h2>
+        <h2 class="h1 mb-0">{{ __('home.our_technologies_title') }}</h2>
         <div class="d-flex">
           <button class="btn btn-sm btn-icon btn-outline-primary rounded-circle" type="button" id="prev-skill"><i class="{{ (App::isLocale('ar') ? 'ai-arrow-right' : 'ai-arrow-left' )}}"></i></button>
           <button class="btn btn-sm btn-icon btn-outline-primary rounded-circle {{ (App::isLocale('ar') ? ' me-3' :  ' ms-3' ) }}" type="button" id="next-skill"><i class="{{ (App::isLocale('ar') ?  'ai-arrow-left' : 'ai-arrow-right' ) }}"></i></button>
