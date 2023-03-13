@@ -61,7 +61,7 @@ class BlogsController extends Controller
         $comment->save();
 
         App::isLocale('en') ? $message = 'Your comment has been posted' : $message = 'تم اضافة تعليقك بنجاح';
-        return redirect()->back()->with('feedback', $message);
+        return redirect()->back();
     }
 
 }

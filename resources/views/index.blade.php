@@ -169,8 +169,9 @@
           <div class="swiper-slide w-sm-auto h-auto">
             <div class="card border-0 bg-secondary h-100">
               <div class="card-body mx-auto" style="max-width: 416px;">
-                <p class="fs-lg mb-1">{{ __('home.react_bio') }}</p>
-                <img src="{{ asset('assets/img/react.svg') }}" width="150" alt="Reactjs">
+                <p class="fs-lg mb-1">{{ __('home.nextjs_bio') }}</p>
+                <img class="d-dark-mode-none" src="{{ asset('assets/img/nextjs.svg') }}" width="150" alt="Nextjs">
+                <img class="d-none d-dark-mode-inline-block" src="{{ asset('assets/img/nextjs.svg') }}" width="150" alt="Nextjs">
               </div>
             </div>
           </div>
@@ -195,9 +196,8 @@
           <div class="swiper-slide w-sm-auto h-auto">
             <div class="card border-0 bg-secondary h-100">
               <div class="card-body mx-auto" style="max-width: 416px;">
-                <p class="fs-lg mb-1">{{ __('home.nextjs_bio') }}</p>
-                <img class="d-dark-mode-none" src="{{ asset('assets/img/nextjs.svg') }}" width="150" alt="Nextjs">
-                <img class="d-none d-dark-mode-inline-block" src="{{ asset('assets/img/nextjs.svg') }}" width="150" alt="Nextjs">
+                <p class="fs-lg mb-1">{{ __('home.react_bio') }}</p>
+                <img src="{{ asset('assets/img/react.svg') }}" width="150" alt="Reactjs">
               </div>
             </div>
           </div>
