@@ -18,7 +18,7 @@
               <li class="breadcrumb-item active {{ (App::isLocale('ar') ?  ' breadcrumb-right-divider' : ' breadcrumb-left-divider') }}" aria-current="page">{{ __('navbar.about_link') }}</li>
             </ol>
           </nav>
-          <h1 class="display-2 pb-2 pb-sm-3">{{ __('about.hero_slogn') }}</h1>
+          <h1 class="display-3 pb-2 pb-sm-3">{{ __('about.hero_slogn') }}</h1>
           <ul class="list-unstyled d-flex flex-wrap mb-0">
             <li class="d-flex py-1 me-4"><i class="ai-check-alt text-primary lead me-2"></i>{{ __('about.hero_service_one') }}</li>
             <li class="d-flex py-1 me-4"><i class="ai-check-alt text-primary lead me-2"></i>{{ __('about.hero_service_two') }}</li>

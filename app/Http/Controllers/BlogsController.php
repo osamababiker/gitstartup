@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Comment;
 use App\Models\Settings;
+use App\Models\Category;
 use App;
 
 class BlogsController extends Controller
@@ -14,9 +15,17 @@ class BlogsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(){
+    public function index(Request $request){
+        $blogs = Blog::where('deleted_at', null);
+        if($request->category)
+            $blogs->where('sub_of', $request->category);
+        if($request->title)
+            $blogs->where('en_title','like', '%' . $request->title . '%')
+                ->orWhere('ar_title','like', '%' . $request->title . '%');
+
         return view('blogs/index', [
-            'blogs' => Blog::paginate(10),
+            'blogs' => $blogs->paginate(10),
+            'categories' => Category::get(),
             'settings' => Settings::first()
         ]);
     }

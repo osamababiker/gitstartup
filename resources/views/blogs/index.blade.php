@@ -14,26 +14,28 @@
       </ol>
     </nav> 
     <!-- Page title + filters-->
-    <div class="row align-items-center gy-2 mb-4 pb-1 pb-sm-2 pb-lg-3">
-      <div class="col-lg-5">
-        <h1 class="mb-lg-0"> {{ __('blogs.page_title') }} </h1>
-      </div>
-      <div class="col-xl-2 offset-xl-1 col-lg-3 col-sm-5">
-        <select class="form-select">
-          <option>{{ __('blogs.filter_all_categories') }}</option>
-          <option>Inspiration</option>
-          <option>Brand strategy</option>
-          <option>Advertisement</option>
-          <option>Ecommerce</option>
-          <option>Travel &amp; Vacation</option>
-        </select>
-      </div>
-      <div class="col-lg-4 col-sm-7">
-        <div class="position-relative"><i class="ai-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
-          <input class="form-control ps-5" type="search" placeholder="{{ __('blogs.filter_search_placeholder') }}">
+    
+    <form action="{{ route('blogs.index') }}" method="get">
+      <div class="row align-items-center gy-2 mb-4 pb-1 pb-sm-2 pb-lg-3">
+        <div class="col-lg-5">
+          <h1 class="mb-lg-0"> {{ __('blogs.page_title') }} </h1>
         </div>
-      </div>
-    </div>
+        <div class="col-xl-2 offset-xl-1 col-lg-3 col-sm-5">
+          <select name="category" class="form-select">
+            <option value="">{{ __('blogs.filter_all_categories') }}</option>
+            @foreach($categories as $category)
+              <option value="{{ $category->id }}">{{ (App::isLocale('ar') ? $category->ar_name : $category->en_name ) }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="col-lg-4 col-sm-7">
+          <div class="position-relative"><i class="ai-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+            <input class="form-control ps-5" name="title" type="search" placeholder="{{ __('blogs.filter_search_placeholder') }}">
+          </div>
+        </div>
+        </div>
+    </form>
+    
     <!-- Blog grid (masonry)-->
     <div class="masonry-grid mb-2 mb-md-4 pb-lg-3" data-columns="3">
       <!-- Blog item-->

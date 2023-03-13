@@ -137,29 +137,127 @@
       </div>
       <!-- Swiper slider-->
       <div class="container-start">
-        <div class="swiper" data-swiper-options="{
-            &quot;slidesPerView&quot;: &quot;auto&quot;,
-            &quot;spaceBetween&quot;: 24,
-            &quot;loop&quot;: true,
-            &quot;navigation&quot;: {
-              &quot;prevEl&quot;: &quot;#prev-skill&quot;,
-              &quot;nextEl&quot;: &quot;#next-skill&quot;
-            }
-          }">
-          <div class="swiper-wrapper text-center">
-            <!-- Item-->
-            @foreach($stories as $story)
-            <div class="swiper-slide w-sm-auto h-auto">
-              <div class="card border-0 bg-secondary h-100">
-                <div class="card-body mx-auto" style="max-width: 416px;">
-                  <p class="fs-lg mb-1">{!! (App::isLocale('ar') ? $story->ar_content :  $story->en_content ) !!}</p>
+          <div class="swiper" data-swiper-options="{
+        &quot;slidesPerView&quot;: &quot;auto&quot;,
+        &quot;spaceBetween&quot;: 24,
+        &quot;loop&quot;: true,
+        &quot;navigation&quot;: {
+          &quot;prevEl&quot;: &quot;#prev-skill&quot;,
+          &quot;nextEl&quot;: &quot;#next-skill&quot;
+        }
+      }">
+        <div class="swiper-wrapper text-center">
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card card-flip card-hover border-0 w-sm-auto h-100 bg-secondary rounded-5">
+              <div class="card-flip-inner mx-auto" style="max-width: 306px;">
+                <div class="card-flip-front p-0">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 opacity-100">
+                    <img src="{{ asset('assets/img/figma.svg') }}" width="72" alt="Figma">
+                  </div>
+                </div>
+                <div class="card-flip-back p-0 bg-transparent">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center h-100">
+                    <img src="{{ asset('assets/img/figma.svg') }}" width="52" alt="Figma">
+                    <p class="fs-sm pt-3 mb-0">{{ __('home.figma_bio') }}</p>
+                  </div>
                 </div>
               </div>
             </div>
-            @endforeach
+          </div>
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card border-0 bg-secondary h-100">
+              <div class="card-body mx-auto" style="max-width: 416px;">
+                <p class="fs-lg mb-1">{{ __('home.react_bio') }}</p>
+                <img src="{{ asset('assets/img/react.svg') }}" width="150" alt="Reactjs">
+              </div>
+            </div>
+          </div>
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card card-flip card-hover border-0 w-sm-auto h-100 bg-secondary rounded-5">
+              <div class="card-flip-inner mx-auto" style="max-width: 306px;">
+                <div class="card-flip-front p-0">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 opacity-100">
+                    <img src="{{ asset('assets/img/css3.svg') }}" width="72" alt="CSS3"></div>
+                </div>
+                <div class="card-flip-back p-0 bg-transparent">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center h-100">
+                    <img src="{{ asset('assets/img/css3.svg') }}" width="52" alt="CSS3">
+                    <p class="fs-sm pt-3 mb-0">{{ __('home.css3_bio') }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card border-0 bg-secondary h-100">
+              <div class="card-body mx-auto" style="max-width: 416px;">
+                <p class="fs-lg mb-1">{{ __('home.nextjs_bio') }}</p>
+                <img class="d-dark-mode-none" src="{{ asset('assets/img/nextjs.svg') }}" width="150" alt="Nextjs">
+                <img class="d-none d-dark-mode-inline-block" src="{{ asset('assets/img/nextjs.svg') }}" width="150" alt="Nextjs">
+              </div>
+            </div>
+          </div>
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card card-flip card-hover border-0 w-sm-auto h-100 bg-secondary rounded-5">
+              <div class="card-flip-inner mx-auto" style="max-width: 306px;">
+                <div class="card-flip-front p-0">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 opacity-100">
+                    <img src="{{ asset('assets/img/bootstrap.svg') }}" width="72" alt="Bootstrap"></div>
+                </div>
+                <div class="card-flip-back p-0 bg-transparent">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center h-100">
+                    <img src="{{ asset('assets/img/bootstrap.svg') }}" width="52" alt="Bootstrap">
+                    <p class="fs-sm pt-3 mb-0">{{ __('home.bootstrap_bio') }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card border-0 bg-secondary h-100">
+              <div class="card-body mx-auto" style="max-width: 416px;">
+                <p class="fs-lg mb-1">{{ __('home.laravel_bio') }}</p>
+                <img src="{{ asset('assets/img/laravel.svg') }}" width="150" alt="Laravel">
+              </div>
+            </div>
+          </div>
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card card-flip card-hover border-0 w-sm-auto h-100 bg-secondary rounded-5">
+              <div class="card-flip-inner mx-auto" style="max-width: 306px;">
+                <div class="card-flip-front p-0">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 opacity-100">
+                    <img src="{{ asset('assets/img/nodejs.svg') }}" width="72" alt="Nodejs">
+                  </div>
+                </div>
+                <div class="card-flip-back p-0 bg-transparent">
+                  <div class="card-body d-flex flex-column justify-content-center align-items-center h-100">
+                    <img src="{{ asset('assets/img/nodejs.svg') }}" width="52" alt="Nodejs">
+                    <p class="fs-sm pt-3 mb-0">{{ __('home.nodejs_bio') }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card border-0 bg-secondary h-100">
+              <div class="card-body mx-auto" style="max-width: 416px;">
+                <p class="fs-lg mb-1">{{ __('home.tailwindcss_bio') }}</p>
+                <img class="d-dark-mode-none" src="{{ asset('assets/img/tailwindcss.svg') }}" width="150" alt="tailwindcss">
+                <img class="d-none d-dark-mode-inline-block" src="{{ asset('assets/img/tailwindcss.svg') }}" width="150" alt="tailwindcss">
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
     </section>
 
     <!-- Our projects-->
@@ -169,12 +267,12 @@
       <!-- Item-->
       @foreach($projects as $project)
       <div class="row align-items-center pt-xl-2 pb-5 mb-lg-2 mb-xl-3 mb-xxl-4">
-        <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
+        <div class="col-md-7 col-lg-6 mb-4 mb-md-0  {{ (App::isLocale('ar') ? ' offset-lg-1' :  '' ) }}">
           <a class="d-block position-relative" href="{{ route('projects.show', ['project' => $project->id]) }}">
             <img class="d-block position-relative zindex-2 mx-auto" src="{{ asset('upload/projects/'. $project->image) }}" width="636" alt="Image" data-aos="fade-in" data-aos-duration="400" data-aos-offset="250">
           </a>
         </div>
-        <div class="col-md-5 col-xl-4 offset-lg-1" data-aos="fade-up" data-aos-duration="400" data-aos-offset="170">
+        <div class="col-md-5 col-xl-4 {{ (App::isLocale('ar') ? '' :  ' offset-lg-1' ) }}" data-aos="fade-up" data-aos-duration="400" data-aos-offset="170">
           <div class="ps-md-3 ps-lg-0">
             <h2 class="h4">{{ (App::isLocale('ar') ? $project->ar_name :  $project->en_name ) }}</h2>
             <p class="fs-sm pb-3 pb-lg-4 mb-3"> {!!  Str::substr((App::isLocale('ar') ? $project->ar_description :  $project->en_description ), 0, 150) !!} </p>
