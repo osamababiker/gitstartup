@@ -38,7 +38,8 @@ class BlogsController extends Controller
         return view('blogs/show', [
             'blog' => $blog,
             'blogs' => Blog::where('id', '!=', $id)->limit(4),
-            'comments' => Comment::where('sub_of', $id)->get()
+            'comments' => Comment::where('sub_of', $id)->get(),
+            'settings' => Settings::first()
         ]);
     }
 

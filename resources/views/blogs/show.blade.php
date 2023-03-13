@@ -97,10 +97,6 @@
             <button class="btn-close ms-auto" type="button" data-bs-dismiss="offcanvas" data-bs-target="#sidebar"></button>
           </div>
           <div class="offcanvas-body">
-            <!-- Search box-->
-            <div class="position-relative mb-4 mb-lg-5"><i class="ai-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
-              <input class="form-control ps-5" type="search" placeholder="{{ __('blogs.filter_search_placeholder') }}">
-            </div>
             <!-- Popular posts-->
             <h4 class="pt-1 pt-lg-0 mt-lg-n2"> {{ __('blogs.more_articals') }} :</h4>
             <div class="mb-lg-5 mb-4">

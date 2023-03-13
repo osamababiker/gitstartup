@@ -26,7 +26,8 @@ class ProjectsController extends Controller
         $project = Project::findOrFail($id);
         return view('projects/show', [
             'project' => $project,
-            'projects' => Project::where('id', '!=', $id)->limit(4)
+            'projects' => Project::where('id', '!=', $id)->limit(4),
+            'settings' => Settings::first()
         ]);
     }
 

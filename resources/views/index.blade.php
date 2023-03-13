@@ -51,7 +51,7 @@
           <!-- Item-->
           <div class="swiper-slide h-auto"><a class="card bg-secondary border-0 h-100 text-center text-decoration-none" href="#">
               <div class="card-body">
-                <i class="ai-code-curly text-primary display-6 mb-3"></i>
+                <i class="ai-github text-primary display-6 mb-3"></i>
                 <h3>{{ __('home.services_one_title') }}</h3>
                 <p class="card-text">{{ __('home.services_one_bio') }}</p>
               </div>
@@ -71,7 +71,7 @@
           <!-- Item-->
           <div class="swiper-slide h-auto"><a class="card bg-secondary border-0 h-100 text-center text-decoration-none" href="#">
               <div class="card-body">
-                <i class="ai-cafe text-primary display-6 mb-3"></i>
+                <i class="ai-dashboard text-primary display-6 mb-3"></i>
                 <h3> {{ __('home.services_three_title') }}</h3>
                 <p class="card-text">{{ __('home.services_three_bio') }}</p>
               </div>
@@ -196,8 +196,8 @@
           <div class="swiper-slide w-sm-auto h-auto">
             <div class="card border-0 bg-secondary h-100">
               <div class="card-body mx-auto" style="max-width: 416px;">
-                <p class="fs-lg mb-1">{{ __('home.react_bio') }}</p>
-                <img src="{{ asset('assets/img/react.svg') }}" width="150" alt="Reactjs">
+                <p class="fs-lg mb-1">{{ __('home.flutter_bio') }}</p>
+                <img src="{{ asset('assets/img/flutter.svg') }}" width="150" alt="flutter">
               </div>
             </div>
           </div>
@@ -215,6 +215,15 @@
                     <p class="fs-sm pt-3 mb-0">{{ __('home.bootstrap_bio') }}</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <!-- Item-->
+          <div class="swiper-slide w-sm-auto h-auto">
+            <div class="card border-0 bg-secondary h-100">
+              <div class="card-body mx-auto" style="max-width: 416px;">
+                <p class="fs-lg mb-1">{{ __('home.react_bio') }}</p>
+                <img src="{{ asset('assets/img/react.svg') }}" width="150" alt="Reactjs">
               </div>
             </div>
           </div>
