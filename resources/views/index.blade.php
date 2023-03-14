@@ -20,7 +20,7 @@
             <div class="col-lg-5 col-xl-4 d-flex flex-column pt-2 pt-md-4 {{ (App::isLocale('ar') ?  '' :  ' offset-lg-1 offset-xxl-2') }}">
               <p class="fs-xl text-center pb-2 pb-md-0 mb-4 mb-md-5 {{ (App::isLocale('ar') ?  ' text-lg-end' :  ' text-lg-start') }}">{{ __('home.hero_bio') }} </p>
               <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start pb-3 pb-sm-5">
-                <a class="btn btn-lg btn-primary rounded-pill w-100 w-sm-auto me-sm-3 me-xl-4 mb-2 mb-sm-0" href="#contact-us">{{ __('home.hero_button') }}</a>
+                <a class="btn btn-lg btn-primary rounded-pill w-100 w-sm-auto me-sm-3 me-xl-4 mb-2 mb-sm-0" href="{{ route('partnership') }}">{{ __('home.hero_button') }}</a>
                 <a class="btn btn-lg btn-link text-white w-100 w-sm-auto px-2" href="/#our-projects">{{ __('home.hero_project_link') }}<i class="{{ (App::isLocale('ar') ? 'ai-arrow-left me-2' : 'ai-arrow-right ms-2') }}"></i></a></div>
                 <ul class="list-inline d-xl-flex text-center mt-auto mb-0 mb-sm-2 {{ (App::isLocale('ar') ? ' text-lg-end' : ' text-lg-start') }}">
                 <li class="d-inline-flex align-items-center text-nowrap pt-1"><i class="ai-heart-filled text-secondary  fs-xl {{ (App::isLocale('ar') ? ' ms-2' : ' me-2') }}"></i> {{ __('home.hero_footer_text') }} </li>

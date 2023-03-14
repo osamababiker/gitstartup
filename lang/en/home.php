@@ -10,7 +10,7 @@ return [
     'our_services_bio' => 'We Build open source solutions for startups',
     'services_one_title' => 'Software as Service',
     'services_one_bio' => 'We build high-quality open-source software solutions for startups.',
-    'services_two_title' => 'Technical Support',
+    'services_two_title' => 'Technical Support', 
     'services_two_bio' => 'We provide 24/7 on demand technical support for startups.',
     'services_three_title' => 'Features Development',
     'services_three_bio' => 'Our development team offers on-demand custom features-building service.',

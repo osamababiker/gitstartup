@@ -18,6 +18,7 @@ return [
     'about_page' => 'About Us',
     'projects_page' => 'Our Projects',
     'blogs_page' => 'Our Blog',
+    'partnership_page' => 'Partnership',
     'company_slogan' => 'Tech Support for your startup idea', 
     'loading' => 'Loading',
     'read_more' => 'Read More'

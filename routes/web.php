@@ -36,6 +36,9 @@ Route::post('/login',[AdminAuthController::class, 'login']);
 Route::get('/', [HomeController::class, 'index'])->name('home');
 /* ============ site about route ============== */
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+/* ============ site partnership route ============== */
+Route::get('/partnership', [HomeController::class, 'partnership'])->name('partnership');
+Route::post('/partnership', [HomeController::class, 'postPartnership'])->name('postPartnership');
 /* ============ site contact message route ============== */
 Route::post('/contact/message', [HomeController::class, 'postContactMessage'])->name('postContactMessage');
 /* ============ site projects route ============== */
