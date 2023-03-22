@@ -13,6 +13,7 @@ class CategoriesController extends Controller
      */
     public function index(){
         return view('admin.categories.index', [
+            'categories' => Category::all(),
             'settings' => Settings::first()
         ]);
     }
