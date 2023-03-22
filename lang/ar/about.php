@@ -14,7 +14,7 @@
         'our_success_indicators_title' => 'نجاحنا',
         'success_indicators_title_one' => 'دعم الابتكار وريادة الاعمال',
         'success_indicators_bio_one' => 'نريد دفع الصناعة إلى الأمام من خلال بناء حلول مبتكرة جديدة .',
-        'success_indicators_title_two' => 'القضاء على الفقر وخلق فرص للعمل',
+        'success_indicators_title_two' => 'خلق فرص العمل',
         'success_indicators_bio_two' => 'من خلال مساعدة الشركات الناشئة على النمو ، سنخلق فرص عمل جديدة تساعد في الحد من مشكلة الفقر  .'
     ]
 

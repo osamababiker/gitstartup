@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Story;
+use App\Models\Settings;
 
 class StoriesController extends Controller
 {
@@ -13,7 +14,8 @@ class StoriesController extends Controller
      */
     public function index(){
         return view('admin.stories.index',[
-            'stories' => Story::paginate(10)
+            'stories' => Story::paginate(10),
+            'settings' => Settings::first()
         ]);
     }
 
@@ -22,7 +24,8 @@ class StoriesController extends Controller
      */
     function create() {
         return view('admin.stories.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'settings' => Settings::first()
         ]);
     }
 
@@ -62,7 +65,8 @@ class StoriesController extends Controller
         $story = Story::findOrFail($id);
         return view('admin.stories.edit', [
             'story' => $story,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'settings' => Settings::first()
         ]);
     }
 

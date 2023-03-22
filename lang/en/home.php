@@ -2,7 +2,7 @@
 
 return [
     'hero_slogan' => 'We build open source soluations for startups',
-    'hero_bio' => 'We help startups grow by building open-source, free-to-use solutions for their problems',
+    'hero_bio' => 'We help startups grow by building open-source, free-to-use solutions ',
     'hero_button' => 'Let\'s partner',
     'hero_project_link' => 'View Our Projects',
     'hero_footer_text' => 'technical support for your startup idea',
@@ -18,7 +18,7 @@ return [
     'our_industries_bio' => 'We want to have an impact in these fields',
     'industre_one_title' => 'Startups & Innovation',
     'industre_one_bio' => 'We want to push the industry forward by building new innovative solutions .',
-    'industre_two_title' => 'Zero Poverty & Job Creation',
+    'industre_two_title' => 'Job Creation',
     'industre_two_bio' => 'By helping startups grow we will create new jobs opportunities which will help reduce the poverty issue .',
     'our_technologies_title' => 'Technologies we use',
     'figma_bio' => 'Figma is a collaborative web application for interface design, with additional offline features enabled by desktop applications for macOS and Windows.',

@@ -13,6 +13,7 @@ use App;
 class HomeController extends Controller
 {
     public function index(){
+        session()->put('current_page', 'home');
         return view('index', [
             'projects' => Project::limit(3)->get(),
             'stories' => Story::get(),
@@ -21,6 +22,7 @@ class HomeController extends Controller
     }
 
     public function about(){
+        session()->put('current_page', 'about');
         return view('about', [
             'settings' => Settings::first()
         ]);
@@ -28,6 +30,7 @@ class HomeController extends Controller
 
 
     public function partnership(){
+        session()->put('current_page', 'partnership');
         return view('partnership', [
             'projects' => Project::get(),
             'settings' => Settings::first()
@@ -54,7 +57,7 @@ class HomeController extends Controller
         $partner->requirements = $request->requirements;
         $partner->save();
         App::isLocale('en') ? $message = 'Your request has been sent' : $message = 'تم ارسال الطلب الخاص بك';
-        return redirect()->back()->with('feedback', $message);
+        return redirect()->back()->with('partnership_feedback', $message);
     }
 
     public function postContactMessage(Request $request){

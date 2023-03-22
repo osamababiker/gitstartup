@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Settings;
 
 class BlogsController extends Controller
 {
@@ -15,6 +16,7 @@ class BlogsController extends Controller
     public function index(){
         return view('admin.blogs.index', [
             'blogs' => Blog::paginate(15),
+            'settings' => Settings::first()
         ]);
     }
 
@@ -24,7 +26,8 @@ class BlogsController extends Controller
      */
     function create() {
         return view('admin.blogs.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'settings' => Settings::first()
         ]);
     } 
 
@@ -68,7 +71,8 @@ class BlogsController extends Controller
      */
     public function show(string $blog_id){
         return view('admin.blogs.comments', [
-            'comments' => Comment::where('sub_of', $blog_id)->paginate(15)
+            'comments' => Comment::where('sub_of', $blog_id)->paginate(15),
+            'settings' => Settings::first()
         ]);
     }
 
@@ -80,7 +84,8 @@ class BlogsController extends Controller
         $blog = Blog::findOrFail($id);
         return view('admin.blogs.edit', [
             'blog' => $blog,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'settings' => Settings::first()
         ]);
     }
 

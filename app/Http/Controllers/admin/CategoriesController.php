@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Settings;
 
 class CategoriesController extends Controller
 {
@@ -11,7 +12,9 @@ class CategoriesController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        return view('admin.categories.index');
+        return view('admin.categories.index', [
+            'settings' => Settings::first()
+        ]);
     }
 
     /**
@@ -19,7 +22,8 @@ class CategoriesController extends Controller
      */
     function create() {
         return view('admin.categories.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'settings' => Settings::first()
         ]);
     } 
 
@@ -46,7 +50,8 @@ class CategoriesController extends Controller
         $category = Category::findOrFail($id);
         return view('admin.categories.edit', [
             'category' => $category,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'settings' => Settings::first()
         ]);
     }
 

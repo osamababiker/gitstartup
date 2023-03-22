@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 
 
-class AuthController extends Controller
-{
+class AuthController extends Controller{
 
 
     // login section
@@ -30,18 +29,18 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/admin');
+            return redirect()->intended('/webmaster/admin');
         }
 
         $message = "Please check your data and try again";
         session()->flash('feedback',$message);
-        return redirect('login');
+        return redirect('/webmaster/login');
     }
 
 
     public function logout (Request $request) {
         Auth::logout();
-        return redirect('login');
+        return redirect('/webmaster/login');
     }
 
     public function changePassword(Request $request){

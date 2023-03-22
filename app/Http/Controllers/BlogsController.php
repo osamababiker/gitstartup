@@ -16,6 +16,7 @@ class BlogsController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request){
+        session()->put('current_page', 'blogs');
         $blogs = Blog::where('deleted_at', null);
         if($request->category)
             $blogs->where('sub_of', $request->category);
@@ -34,6 +35,7 @@ class BlogsController extends Controller
      * Display the specified resource.
      */
     public function show(string $id){
+        session()->put('current_page', 'blogs');
         $blog = Blog::findOrFail($id);
         return view('blogs/show', [
             'blog' => $blog,
@@ -62,7 +64,7 @@ class BlogsController extends Controller
         $comment->save();
 
         App::isLocale('en') ? $message = 'Your comment has been posted' : $message = 'تم اضافة تعليقك بنجاح';
-        return redirect()->back();
+        return redirect()->back()->with('comments_feedback', $message);
     }
 
 }

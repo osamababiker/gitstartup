@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Models\Settings;
 
 class MessagesController extends Controller
 {
@@ -12,7 +13,8 @@ class MessagesController extends Controller
      */
     public function index(){
         return view('admin.messages.index', [
-            'messages' => Message::paginate(15)
+            'messages' => Message::paginate(15),
+            'settings' => Settings::first()
         ]);
     }
 

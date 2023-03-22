@@ -13,6 +13,7 @@ class ProjectsController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
+        session()->put('current_page', 'projects');
         return view('projects/index', [
             'projects' => Project::all(),
             'settings' => Settings::first()
@@ -23,6 +24,7 @@ class ProjectsController extends Controller
      * Display the specified resource.
      */
     public function show(string $id){
+        session()->put('current_page', 'projects');
         $project = Project::findOrFail($id);
         return view('projects/show', [
             'project' => $project,

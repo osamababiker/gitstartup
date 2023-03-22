@@ -1,8 +1,8 @@
 @extends('components/layout')
 @section('title', __('general.home_page') )
-@section('description', "Git Startup home page")
-@section('keywords', "Git startup ") 
-
+@section('description', __('general.general_page_description'))
+@section('keywords', __('general.general_page_keywords'))
+ 
 @section('content')
     <!-- Page content--> 
     <!-- Hero-->

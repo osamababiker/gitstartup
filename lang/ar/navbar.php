@@ -5,7 +5,8 @@
         'about_link' => 'عن جيت',
         'projects_link' => 'مشاريعنا',
         'blogs_link' => 'المدونة',
-        'contact_link' => 'تواصل معنا'
+        'contact_link' => 'تواصل معنا',
+        'partnership_link' => 'كن شريكا'
     ]
 
 ?>

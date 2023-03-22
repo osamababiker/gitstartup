@@ -9,7 +9,7 @@
     <!-- SEO Meta Tags-->
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
-    <meta name="author" content="Createx Studio">
+    <meta name="author" content="Git Startup">
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon and Touch Icons-->
@@ -49,7 +49,7 @@
     <link rel="stylesheet" media="screen" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}"/>
     <link rel="stylesheet" media="screen" href="{{ asset('assets/vendor/aos/dist/aos.css') }}"/>
     <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/css/theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   </head>
 

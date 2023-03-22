@@ -14,7 +14,7 @@
         'our_success_indicators_title' => 'Our success',
         'success_indicators_title_one' => 'Support startups and innovation',
         'success_indicators_bio_one' => 'We want to push the industry forward by building new innovative solutions .',
-        'success_indicators_title_two' => 'Zero Poverty & job creation',
+        'success_indicators_title_two' => 'Job creation',
         'success_indicators_bio_two' => 'By helping startups grow we will create new jobs opportunities which will help reduce the poverty issue .'
     ]
 

@@ -1,7 +1,7 @@
 @extends('components/layout')
 @section('title', __('general.blogs_page') )
-@section('description', "Git Startup About page")
-@section('keywords', "Git startup ")
+@section('description', __('general.general_page_description'))
+@section('keywords', __('general.general_page_keywords'))
 
 @section('content')
   <!-- Page content-->
@@ -17,10 +17,10 @@
     
     <form action="{{ route('blogs.index') }}" method="get">
       <div class="row align-items-center gy-2 mb-4 pb-1 pb-sm-2 pb-lg-3">
-        <div class="col-lg-5">
+        <div class="col-lg-12">
           <h1 class="mb-lg-0"> {{ __('blogs.page_title') }} </h1>
         </div>
-        <div class="col-xl-2 offset-xl-1 col-lg-3 col-sm-5">
+        <div class="col-xl-2 col-lg-3 col-sm-5">
           <select name="category" class="form-select">
             <option value="">{{ __('blogs.filter_all_categories') }}</option>
             @foreach($categories as $category)

@@ -1,11 +1,11 @@
 @extends('components/layout')
 @section('title', __('general.partnership_page') )
-@section('description', "Git Startup partnership page")
-@section('keywords', "Git startup ") 
+@section('description', __('general.general_page_description'))
+@section('keywords', __('general.general_page_keywords'))
 
 @section('content') 
       <!-- Page content-->
-      <!-- Hero-->
+      <!-- Hero--> 
       <section class="position-relative overflow-hidden pt-5">
         <div class="container position-relative zindex-2 pt-4 pt-sm-5 mt-2 mt-sm-0 mt-md-2 mt-lg-3 mt-xl-4 mt-xxl-5">
           <div class="row justify-content-center py-4">
@@ -28,6 +28,12 @@
             <path d="M147.005 75.6331C152.135 70.7783 156.106 64.2374 159.153 57.9073C166.014 43.6372 174.127 22.1368 160.207 9.68505C152.924 3.17188 139.243 3.86644 130.324 5.29774C118.428 7.20428 107.295 8.85077 96.5031 14.783C85.8056 20.6599 79.0155 33.6997 77.0014 45.6686C75.4978 54.5776 79.63 63.6672 84.7391 70.7453C91.8208 80.5571 103.503 84.2003 114.817 84.3975C121.101 84.5081 127.716 84.0527 133.89 82.8121C138.932 81.7962 143.273 79.1597 147.005 75.6331Z" fill="#121519" fill-opacity="0.07"></path>
           </svg>
           <div class="card-body position-relative zindex-2 py-5">
+            @if(session()->has('partnership_feedback'))
+              <div class="alert alert-light alert-dismissible fade show" role="alert">
+                  {{session()->get('partnership_feedback')}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            @endif
             <form class="mx-auto" style="max-width: 800px;" method="post" action="{{ route('postPartnership') }}">
               @csrf
               <h2 class="h1 card-title text-center pb-4">{{ __('partnership.form_title') }}</h2>
@@ -73,7 +79,7 @@
         </div>
       </section>
       <!-- Clients-->
-      <section class="container pt-5 mt-xl-3 mt-xxl-4">
+      <!-- <section class="container pt-5 mt-xl-3 mt-xxl-4">
         <h2 class="h4 text-center pb-3 pb-md-4 mb-lg-4"> {{ __('partnership.partners_slide_title') }} </h2>
         <div class="row row-cols-3 row-cols-sm-4 row-cols-lg-5 row-cols-xl-6 justify-content-center align-items-center g-4">
           <div class="col text-center"><a class="swap-image my-1 my-sm-2" href="#"><img class="swap-to" src="assets/img/landing/saas-1/brands/foster-color.svg" width="145" alt="Foster">
@@ -89,17 +95,17 @@
           <div class="col text-center"><a class="swap-image my-1 my-sm-2" href="#"><img class="swap-to" src="assets/img/landing/saas-1/brands/alpine-color.svg" width="150" alt="Alpine">
               <div class="swap-from"><img class="d-dark-mode-none" src="assets/img/landing/saas-1/brands/alpine-gray.svg" width="150" alt="Alpine"><img class="d-none d-dark-mode-block" src="assets/img/landing/saas-1/brands/alpine-light.svg" width="150" alt="Alpine"></div></a></div>
         </div>
-      </section>
+      </section> -->
       <!-- How it works (Steps)-->
       <section class="overflow-hidden py-5 my-md-2 my-xl-4 my-xxl-5">
         <div class="container py-2 py-sm-4 py-lg-5">
           <h2 class="h1 text-center pb-3 mb-3 mb-lg-4 mt-xxl-2"> {{ __('partnership.steps_section_title') }} </h2>
           <!-- Step-->
           <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
-            <div class="col-md-6 col-xl-5 offset-lg-1 order-md-2 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+            <div class="col-md-6 col-xl-5  order-md-2 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
               <img class="" src="{{ asset('assets/img/undraw_freelancer.svg') }}" width="525" alt="Image">
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+            <div class="col-md-6 col-lg-5 col-xl-4 order-md-1" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
               <div class="pe-md-4 pe-lg-0">
                 <span class="badge fs-sm bg-faded-primary text-primary mb-3 mb-lg-4"> {{ __('partnership.step_one_label') }} </span>
                 <h3 class="h2 mb-3 mb-lg-4"> {{ __('partnership.step_one_title') }} </h3>
@@ -123,10 +129,10 @@
           </div>
           <!-- Step-->
           <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
-            <div class="col-md-6 col-xl-5 offset-xl-1 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+            <div class="col-md-6 col-xl-5  pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
               <img class="" src="{{ asset('assets/img/undraw_agreement.svg') }}" width="473" alt="Image">
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-4 offset-lg-1" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+            <div class="col-md-6 col-lg-5 col-xl-4" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
               <div class="ps-md-4 ps-lg-0">
                 <span class="badge fs-sm bg-faded-primary text-primary mb-3 mb-lg-4">{{ __('partnership.step_two_label') }}</span>
                 <h3 class="h2 mb-3 mb-lg-4">{{ __('partnership.step_two_title') }}  </h3>
@@ -150,10 +156,10 @@
           </div>
           <!-- Step-->
           <div class="row align-items-center position-relative">
-            <div class="col-md-6 col-xl-5 offset-lg-1 order-md-2 d-md-flex justify-content-end pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+            <div class="col-md-6 col-xl-5 order-md-2 d-md-flex justify-content-end pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
               <img class="" src="{{ asset('assets/img/undraw_fingerprint.svg') }}" width="473" alt="Image">
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+            <div class="col-md-6 col-lg-5 col-xl-4 order-md-1" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
               <div class="pe-md-4 pe-lg-0"><span class="badge fs-sm bg-faded-primary text-primary mb-3 mb-lg-4">{{ __('partnership.step_three_label') }}</span>
                 <h3 class="h2 mb-3 mb-lg-4"> {{ __('partnership.step_three_title') }} </h3>
                 <p class="pb-1 pb-lg-0 mb-4 mb-lg-5"> {{ __('partnership.step_three_bio') }}   </p>

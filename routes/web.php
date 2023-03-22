@@ -6,14 +6,6 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\LangController;
 
-use App\Http\Controllers\Admin\HomeController as AdminHomeController;
-use App\Http\Controllers\Admin\AuthController as AdminAuthController;
-use App\Http\Controllers\Admin\ProjectsController as AdminProjectsController;
-use App\Http\Controllers\Admin\BlogsController as AdminBlogsController;
-use App\Http\Controllers\Admin\CategoriesController as AdminCategoriesController;
-use App\Http\Controllers\Admin\StoriesController as AdminStoriesController;
-use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
-use App\Http\Controllers\Admin\MessagesController as AdminMessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +21,9 @@ use App\Http\Controllers\Admin\MessagesController as AdminMessagesController;
 
 /* ============ change lang route ============== */
 Route::post('lang/change', [LangController::class, 'change'])->name('changeLang');
-/* ============ site auth route ============== */
-Route::get('/login',[AdminAuthController::class, 'showLogin'])->name('login')->middleware('guest');
-Route::post('/login',[AdminAuthController::class, 'login']);
 /* ============ site home route ============== */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 /* ============ site about route ============== */
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 /* ============ site partnership route ============== */
@@ -46,26 +36,3 @@ Route::resource('/projects', ProjectsController::class);
 /* ============ site blogs route ============== */
 Route::resource('/blogs', BlogsController::class);
 Route::post('/blogs/comments', [BlogsController::class, 'postComments'])->name('blogs.postComments');
-
-
-// admin routes
-Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function() {
-    /* ============ home route ============== */
-    Route::get('/', [AdminHomeController::class, 'index'])->name('admin.index');
-    /* ============ settings route ============== */
-    Route::resource('/settings', AdminSettingsController::class, ['as' => 'admin']);
-    /* ============ categories route ============== */
-    Route::resource('/categories', AdminCategoriesController::class, ['as' => 'admin']);
-    /* ============ blogs route ============== */
-    Route::resource('/blogs', AdminBlogsController::class, ['as' => 'admin']);
-    Route::post('/blogs/comments/destroy', [AdminBlogsController::class, 'destroyComments'])->name('admin.blogs.destroyComments');
-    /*============== projects route ============== */
-    Route::resource('/projects', AdminProjectsController::class, ['as' => 'admin']);
-    /*============== stories route ============== */
-    Route::resource('/stories', AdminStoriesController::class, ['as' => 'admin']);
-    /*============== contacts route ============== */
-    Route::resource('/messages', AdminMessagesController::class, ['as' => 'admin']);
-    /*============== auth route  ==================*/
-    Route::post('/logout',[AdminAuthController::class, 'logout'])->name('logout');
-    Route::post('/changePassword',[AdminAuthController::class, 'changePassword'])->name('changePassword');
-});

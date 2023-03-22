@@ -12,21 +12,21 @@
           <div class="card-body">
           <div class="row g-3 g-xl-4">
               <div class="col-md-4 col-sm-6">
-                <div class="h-100 bg-secondary rounded-3 text-center p-4">
-                  <h2 class="h6 pb-2 mb-1">Active users</h2>
-                  <div class="h2 text-primary mb-2">842.00</div>
+                <div class="h-100 bg-secondary rounded-3 text-center p-4"> 
+                  <h2 class="h6 pb-2 mb-1">Contact Messages</h2>
+                  <div class="h2 text-primary mb-2">{{ $messages_count }}</div>
                 </div>
               </div>
               <div class="col-md-4 col-sm-6">
                 <div class="h-100 bg-secondary rounded-3 text-center p-4">
-                  <h2 class="h6 pb-2 mb-1">Blog Posts</h2>
-                  <div class="h2 text-primary mb-2">8</div>
+                  <h2 class="h6 pb-2 mb-1">Comments </h2>
+                  <div class="h2 text-primary mb-2">{{ $comments_count }}</div>
                 </div>
               </div>
               <div class="col-md-4 col-sm-12">
                 <div class="h-100 bg-secondary rounded-3 text-center p-4">
-                  <h2 class="h6 pb-2 mb-1">Contact Messages</h2>
-                  <div class="h2 text-primary mb-2">74</div>
+                  <h2 class="h6 pb-2 mb-1">Partnership requests</h2>
+                  <div class="h2 text-primary mb-2">{{ $partnership_count }}</div>
                 </div>
               </div>
             </div>

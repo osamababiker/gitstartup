@@ -5,7 +5,8 @@
         'about_link' => 'About Us',
         'projects_link' => 'Our Projects',
         'blogs_link' => 'Blogs',
-        'contact_link' => 'Contact Us'
+        'contact_link' => 'Contact Us',
+        'partnership_link' => 'Let\'s partner'
     ]
  
 ?>

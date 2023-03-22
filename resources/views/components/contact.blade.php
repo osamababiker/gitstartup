@@ -34,7 +34,7 @@
         </form>
       </div>
       <div class="col-lg-7 col-xl-6 offset-xl-1 d-991-none">
-        <img src="{{ asset('assets/img/undraw_voice_control_ofo1.svg') }}" alt="contact us">
+        <img src="{{ asset('assets/img/undraw_contact_us.svg') }}" alt="contact us">
       </div>
     </div>
   </div>

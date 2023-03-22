@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Settings;
 
 class ProjectsController extends Controller
 {
@@ -13,7 +14,8 @@ class ProjectsController extends Controller
      */
     public function index(){
         return view('admin.projects.index',[
-            'projects' => Project::all()
+            'projects' => Project::all(),
+            'settings' => Settings::first()
         ]);
     }
 
@@ -22,7 +24,8 @@ class ProjectsController extends Controller
      */
     function create() {
         return view('admin.projects.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'settings' => Settings::first()
         ]);
     } 
 
@@ -74,7 +77,8 @@ class ProjectsController extends Controller
         $project = Project::findOrFail($id);
         return view('admin.projects.edit', [
             'project' => $project,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'settings' => Settings::first()
         ]);
     }
 

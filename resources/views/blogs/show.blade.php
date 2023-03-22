@@ -56,9 +56,9 @@
           <!-- Comment form-->
           <div class="card border-0 bg-secondary pt-2 p-md-2 p-xl-3 p-xxl-4 mt-n3 mt-md-0 mb-5">
             <div class="card-body">
-              @if(session()->has('feedback'))
+              @if(session()->has('comment_feedback'))
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
-                   {{session()->get('feedback')}}
+                   {{session()->get('comment_feedback')}}
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
               @endif
