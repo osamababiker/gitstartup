@@ -14,7 +14,7 @@
         <div class="bg-black position-absolute top-0 start-0 w-100 h-100" style="opacity: 60%;"></div> 
         <div class="container position-relative zindex-2 pt-xl-4 pt-xxl-5 pb-sm-2">
           <div class="row pt-md-3 pt-lg-5">
-            <div class="col-lg-6 col-xxl-5 pb-lg-5 mb-xl-5 {{ (App::isLocale('ar') ?  ' offset-lg-1 offset-xxl-2' :  '') }}">
+            <div class="col-lg-6 col-xxl-5 pb-lg-5 mb-xl-5 {{ (App::isLocale('ar') ?  ' offset-lg-1 offset-xxl-2' :  '') }}"> 
               <h1 class="display-3 text-center mb-xxl-5 {{ (App::isLocale('ar') ? ' text-lg-end' : ' text-lg-start' ) }}"> {{ __('home.hero_slogan') }} </h1>
             </div>
             <div class="col-lg-5 col-xl-4 d-flex flex-column pt-2 pt-md-4 {{ (App::isLocale('ar') ?  '' :  ' offset-lg-1 offset-xxl-2') }}">
@@ -23,7 +23,6 @@
                 <a class="btn btn-lg btn-primary rounded-pill w-100 w-sm-auto me-sm-3 me-xl-4 mb-2 mb-sm-0" href="{{ route('partnership') }}">{{ __('home.hero_button') }}</a>
                 <a class="btn btn-lg btn-link text-white w-100 w-sm-auto px-2" href="/#our-projects">{{ __('home.hero_project_link') }}<i class="{{ (App::isLocale('ar') ? 'ai-arrow-left me-2' : 'ai-arrow-right ms-2') }}"></i></a></div>
                 <ul class="list-inline d-xl-flex text-center mt-auto mb-0 mb-sm-2 {{ (App::isLocale('ar') ? ' text-lg-end' : ' text-lg-start') }}">
-                <li class="d-inline-flex align-items-center text-nowrap pt-1"><i class="ai-heart-filled text-secondary  fs-xl {{ (App::isLocale('ar') ? ' ms-2' : ' me-2') }}"></i> {{ __('home.hero_footer_text') }} </li>
               </ul>
             </div>
           </div>
@@ -94,31 +93,42 @@
           <div class="accordion accordion-alt" id="industries">
             <div class="accordion-item mb-n3 mb-lg-n2 mb-xl-1">
               <h3 class="accordion-header"> 
-                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }}" type="button" data-bs-toggle="collapse" data-binded-content="#startups-img" data-bs-target="#startups" aria-expanded="true" aria-controls="startups">{{ __('home.industre_one_title') }}</button>
+                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }}" type="button" data-bs-toggle="collapse" data-binded-content="#industre_one-img" data-bs-target="#industre_one" aria-expanded="true" aria-controls="industre_one">{{ __('home.industre_one_title') }}</button>
               </h3>
-              <div class="accordion-collapse collapse show" id="startups" data-bs-parent="#industries">
+              <div class="accordion-collapse collapse show" id="industre_one" data-bs-parent="#industries">
                 <div class="accordion-body">{{ __('home.industre_one_bio') }}</div>
               </div>
             </div>
             <div class="accordion-item mb-n3 mb-lg-n2 mb-xl-1">
               <h3 class="accordion-header">
-                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }} collapsed" type="button" data-bs-toggle="collapse" data-binded-content="#jobs-img" data-bs-target="#jobs" aria-expanded="false" aria-controls="jobs">{{ __('home.industre_two_title') }} </button>
+                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }} collapsed" type="button" data-bs-toggle="collapse" data-binded-content="#industre_two-img" data-bs-target="#industre_two" aria-expanded="false" aria-controls="industre_two">{{ __('home.industre_two_title') }} </button>
               </h3>
-              <div class="accordion-collapse collapse" id="jobs" data-bs-parent="#industries">
+              <div class="accordion-collapse collapse" id="industre_two" data-bs-parent="#industries">
                 <div class="accordion-body">{{ __('home.industre_two_bio') }}</div>
+              </div>
+            </div>
+            <div class="accordion-item mb-n3 mb-lg-n2 mb-xl-1">
+              <h3 class="accordion-header">
+                <button class="accordion-button {{ (App::isLocale('ar') ? ' accordion-button-right' : '') }} collapsed" type="button" data-bs-toggle="collapse" data-binded-content="#industre_three-img" data-bs-target="#industre_three" aria-expanded="false" aria-controls="industre_three">{{ __('home.industre_three_title') }} </button>
+              </h3>
+              <div class="accordion-collapse collapse" id="industre_three" data-bs-parent="#industries">
+                <div class="accordion-body">{{ __('home.industre_three_bio') }}</div>
               </div>
             </div>
           </div>
         </div>
         <!-- Binded images-->
-        <div class="col-md-6 col-lg-7 col-xl-6 {{ (App::isLocale('ar') ? ' offset-xr-1' : ' offset-xl-1') }}">
+        <div class="col-md-6 col-lg-7 col-xl-6">
           <div class="ps-lg-4 ps-xl-0">
             <div class="binded-content">
-              <div class="binded-item active" id="startups-img">
-                <img class="rounded-5" src="{{ asset('assets/img/industries/01.jpg') }}" alt="Startups ">
+              <div class="binded-item active" id="industre_one-img">
+                <img class="rounded-5" src="{{ asset('assets/img/industries/01.jpg') }}" alt="industre one ">
               </div>
-              <div class="binded-item" id="jobs-img">
-                <img class="rounded-5" src="{{ asset('assets/img/industries/02.jpg') }}" alt="Job creation">
+              <div class="binded-item" id="industre_two-img">
+                <img class="rounded-5" src="{{ asset('assets/img/industries/02.jpg') }}" alt="industre two">
+              </div>
+              <div class="binded-item" id="industre_three-img">
+                <img class="rounded-5" src="{{ asset('assets/img/industries/02.jpg') }}" alt="industre three">
               </div>
             </div>
           </div>
