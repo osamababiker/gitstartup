@@ -14,17 +14,9 @@ return new class extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('company');
-            $table->text('address');
-            $table->text('requirements');
+            $table->string('logo');
+            $table->string('link')->nullable();
 
-            $table->unsignedBigInteger('project_id');
-            $table->foreign('project_id')
-                ->references('id')
-                ->on('projects')
-                ->onDelete('cascade');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

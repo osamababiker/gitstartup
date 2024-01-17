@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Project;
 use App\Models\Settings;
+use Str;
 
 class ProjectsController extends Controller
 {
@@ -55,6 +56,7 @@ class ProjectsController extends Controller
             $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
             $image->move(public_path('upload/projects'),$image_name);
         }
+        $project->slug = Str::slug($request->en_name);
         $project->en_name = $request->en_name;
         $project->ar_name = $request->ar_name;
         $project->sub_of = $request->sub_of;

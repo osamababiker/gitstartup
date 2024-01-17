@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Settings;
+use Str;
 
 class BlogsController extends Controller
 {
@@ -53,6 +54,7 @@ class BlogsController extends Controller
         } 
 
         $blog = new Blog();
+        $blog->slug = Str::slug($request->en_title);
         $blog->sub_of = $request->sub_of;
         $blog->ar_title = $request->ar_title;
         $blog->en_title = $request->en_title;

@@ -16,33 +16,16 @@ class BlogsController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request){
-        session()->put('current_page', 'blogs');
-        $blogs = Blog::where('deleted_at', null);
-        if($request->category)
-            $blogs->where('sub_of', $request->category);
-        if($request->title)
-            $blogs->where('en_title','like', '%' . $request->title . '%')
-                ->orWhere('ar_title','like', '%' . $request->title . '%');
-
-        return view('blogs/index', [
-            'blogs' => $blogs->paginate(10),
-            'categories' => Category::get(),
-            'settings' => Settings::first()
-        ]);
+        $blogs = Blog::get();
+        return response()->json($blogs, 200);
     }
 
      /**
      * Display the specified resource.
      */
     public function show(string $id){
-        session()->put('current_page', 'blogs');
         $blog = Blog::findOrFail($id);
-        return view('blogs/show', [
-            'blog' => $blog,
-            'blogs' => Blog::where('id', '!=', $id)->limit(4),
-            'comments' => Comment::where('sub_of', $id)->get(),
-            'settings' => Settings::first()
-        ]);
+        return response()->json($blog, 200);
     }
 
     /**
