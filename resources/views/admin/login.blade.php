@@ -1,8 +1,7 @@
 @include('../components/head')
   <!-- Body-->
   <body>
-    <!-- Page loading spinner-->
-    @include('../components/loading')
+
     <!-- Page wrapper-->
     <main class="page-wrapper">
       <!-- Page content-->

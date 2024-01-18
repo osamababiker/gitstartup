@@ -22,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 /** to get all blogs  */
 Route::get('/blogs', [BlogsController::class, 'index']);
+
+/** to get all blogs  */
+Route::get('/blogs/{id}', [BlogsController::class, 'show']);
