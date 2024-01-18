@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Message;
-use App\Models\Story;
 use App\Models\Project;
 use App\Models\Settings;
 use App\Models\Partner;
@@ -16,7 +15,6 @@ class HomeController extends Controller
         session()->put('current_page', 'home');
         return view('index', [
             'projects' => Project::limit(3)->get(),
-            'stories' => Story::get(),
             'settings' => Settings::first()
         ]);
     }
