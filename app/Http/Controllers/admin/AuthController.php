@@ -29,18 +29,18 @@ class AuthController extends Controller{
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/webmaster/admin');
+            return redirect()->intended('/admin');
         }
 
         $message = "Please check your data and try again";
         session()->flash('feedback',$message);
-        return redirect('/webmaster/login');
+        return redirect('/login');
     }
 
 
     public function logout (Request $request) {
         Auth::logout();
-        return redirect('/webmaster/login');
+        return redirect('/login');
     }
 
     public function changePassword(Request $request){

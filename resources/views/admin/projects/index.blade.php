@@ -8,17 +8,6 @@
       @include('admin/components/sidebar')
       <!-- Page content-->
       <div class="col-lg-9 pt-4 pb-2 pb-sm-4">
-        <div class="d-flex align-items-center mb-4">
-          <select class="form-select ms-auto" style="max-width: 200px;">
-            <option value="All tme">For all time</option>
-            <option value="Last week">Last week</option>
-            <option value="Last month">Last month</option>
-            <option value="Last month">Last month</option>
-            <option value="In progress">In progress</option>
-            <option value="Canceled">Canceled</option>
-            <option value="Delivered">Delivered</option>
-          </select>
-        </div>
         <div class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4">
           <div class="card-body pb-4">
             <!-- Feedback -->
@@ -27,7 +16,7 @@
             <section class="card border-0 mb-4" id="tables-color-borders">
               <div class="card-body pb-0 d-flex justify-content-between ">
                 <h2 class="h4 mb-n2">Projects list</h2>
-                <a class="btn btn-light" target="_blank" href="{{ route('admin.projects.create') }}"> <i class="ai-plus text-primary"></i> </a>
+                <a class="btn btn-light" href="{{ route('admin.projects.create') }}"> <i class="ai-plus text-primary"></i> </a>
               </div>
               <div class="card-body">
                 <div class="tab-content">
@@ -51,7 +40,7 @@
                       <td> <img src="{{ asset('upload/projects/' . $project->logo) }}" width="50" height="50" alt=""> </td>
                       <td>{{ $project->created_at->diffForHumans() }}</td>
                       <td>
-                        <a  target="_blank" href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"> <i class="ai-edit-alt text-primary"></i> </a>
+                        <a  href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"> <i class="ai-edit-alt text-primary"></i> </a>
                         &nbsp;&nbsp;
                         <a  type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $project->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
                       </td>

@@ -13,8 +13,8 @@ class HomeController extends Controller
     public function index(){
         return view('admin/index', [
             'messages_count' => Message::count(),
-            'comments_count' => Comment::count(),
-            'partnership_count' => Partner::count(),
+            'posts_count' => Comment::count(),
+            'partners_count' => Partner::count(),
             'settings' => Settings::first()
         ]); 
     }

@@ -8,17 +8,6 @@
       @include('admin/components/sidebar')
       <!-- Page content-->
       <div class="col-lg-9 pt-4 pb-2 pb-sm-4">
-        <div class="d-flex align-items-center mb-4">
-          <select class="form-select ms-auto" style="max-width: 200px;">
-            <option value="All tme">For all time</option>
-            <option value="Last week">Last week</option>
-            <option value="Last month">Last month</option>
-            <option value="Last month">Last month</option>
-            <option value="In progress">In progress</option>
-            <option value="Canceled">Canceled</option>
-            <option value="Delivered">Delivered</option>
-          </select>
-        </div>
         <div class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4">
           <div class="card-body pb-4">
             <!-- Feedback -->

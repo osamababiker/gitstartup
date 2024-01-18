@@ -7,7 +7,6 @@
         <div class="pb-2 pb-lg-0 mb-4 mb-lg-5">
           <img class="d-block rounded-circle mb-2" src="{{ asset('assets/img/user.png') }}" width="80" alt="Isabella Bocouse">
           <h3 class="h5 mb-1">{{ Auth::user()->name }}</h3>
-          <p class="fs-sm text-muted mb-0">{{ Auth::user()->email }}</p>
         </div>
         <nav class="nav flex-column pb-2 pb-lg-4 mb-3">
           <h4 class="fs-xs fw-medium text-muted text-uppercase pb-1 mb-2">Account</h4>
@@ -17,7 +16,6 @@
         <nav class="nav flex-column pb-2 pb-lg-4 mb-1">
           <h4 class="fs-xs fw-medium text-muted text-uppercase pb-1 mb-2">Dashboard</h4>
           <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.blogs.index') }}"><i class="ai-edit fs-5 opacity-60 me-2"></i>Blogs</a>
-          <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.stories.index') }}"><i class="ai-pen fs-5 opacity-60 me-2"></i>Stores</a>
           <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.messages.index') }}"><i class="ai-messages fs-5 opacity-60 me-2"></i>Messages</a>
           <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.projects.index') }}"><i class="ai-code-curly fs-5 opacity-60 me-2"></i>Projects</a>
           <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.categories.index') }}"><i class="ai-flag fs-5 opacity-60 me-2"></i>Categories</a>
