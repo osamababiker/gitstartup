@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\AuthController ;
-use App\Http\Controllers\Admin\ProjectsController;
+use App\Http\Controllers\Admin\PartnersController;
 use App\Http\Controllers\Admin\BlogsController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\StoriesController;
@@ -28,8 +28,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
     /* ============ blogs route ============== */
     Route::resource('/blogs', BlogsController::class, ['as' => 'admin']);
     Route::post('/blogs/comments/destroy', [BlogsController::class, 'destroyComments'])->name('admin.blogs.destroyComments');
-    /*============== projects route ============== */
-    Route::resource('/projects', ProjectsController::class, ['as' => 'admin']);
+    /*============== partners route ============== */
+    Route::resource('/partners', PartnersController::class, ['as' => 'admin']);
     /*============== stories route ============== */
     Route::resource('/stories', StoriesController::class, ['as' => 'admin']);
     /*============== contacts route ============== */

@@ -16,15 +16,15 @@ class BlogsController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request){
-        $blogs = Blog::get();
+        $blogs = Blog::with('category')->get();
         return response()->json($blogs, 200);
     }
 
      /**
      * Display the specified resource.
      */
-    public function show(string $id){
-        $blog = Blog::findOrFail($id);
+    public function show(string $slug){
+        $blog = Blog::where('slug', $slug)->with('category')->first();
         return response()->json($blog, 200);
     }
 

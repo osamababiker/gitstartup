@@ -15,8 +15,8 @@
             <!-- Orders accordion-->
             <section class="card border-0 mb-4" id="tables-color-borders">
               <div class="card-body pb-0 d-flex justify-content-between ">
-                <h2 class="h4 mb-n2">Projects list</h2>
-                <a class="btn btn-light" href="{{ route('admin.projects.create') }}"> <i class="ai-plus text-primary"></i> </a>
+                <h2 class="h4 mb-n2">Partners list</h2>
+                <a class="btn btn-light" href="{{ route('admin.partners.create') }}"> <i class="ai-plus text-primary"></i> </a>
               </div>
               <div class="card-body">
                 <div class="tab-content">
@@ -26,39 +26,43 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Project name</th>
-                      <th>Project Logo</th>
+                      <th>partner name</th>
+                      <th>partner Logo</th>
+                      <th>partner address</th>
+                      <th>partner feedback</th>
                       <th>Created at</th>
                       <th>Settings</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($projects as $project)
+                    @foreach($partners as $partner)
                     <tr>
-                      <th scope="row">{{ $project->id }}</th>
-                      <td>{{ $project->en_name }}</td>
-                      <td> <img src="{{ asset('upload/projects/' . $project->logo) }}" width="50" height="50" alt=""> </td>
-                      <td>{{ $project->created_at->diffForHumans() }}</td>
+                      <th scope="row">{{ $partner->id }}</th>
+                      <td>{{ $partner->name }}</td>
+                      <td> <img src="{{ asset('upload/partners/' . $partner->logo) }}" width="50" height="50" alt=""> </td>
+                      <td>{{ $partner->address }}</td>
+                      <td>{{ $partner->feedback }}</td>
+                      <td>{{ $partner->created_at->diffForHumans() }}</td>
                       <td>
-                        <a  href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"> <i class="ai-edit-alt text-primary"></i> </a>
+                        <a  href="{{ route('admin.partners.edit', ['partner' => $partner->id]) }}"> <i class="ai-edit-alt text-primary"></i> </a>
                         &nbsp;&nbsp;
-                        <a  type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $project->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
+                        <a  type="button" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $partner->id }}" href="#"> <i class="ai-trash text-primary"></i> </a>
                       </td>
                     </tr>
                     <!-- Delete modal -->
-                    <div id="deleteModal_{{ $project->id }}" class="modal" tabindex="-1" role="dialog">
+                    <div id="deleteModal_{{ $partner->id }}" class="modal" tabindex="-1" role="dialog">
                       <div class="modal-dialog modal-lg"  role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h4> Delete {{ $project->en_name }} </h4>
+                            <h4> Delete {{ $partner->name }} </h4>
                             <button class="btn-close text-primary" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body tab-content">
-                            <h3> Are you sure you want to delete this project ? </h3>
-                            <form autocomplete="off" id="deleteForm_{{ $project->id }}" method="post" action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}">
+                            <h3> Are you sure you want to delete this partner ? </h3>
+                            <form autocomplete="off" id="deleteForm_{{ $partner->id }}" method="post" action="{{ route('admin.partners.destroy', ['partner' => $partner->id]) }}">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" form="deleteForm_{{ $project->id }}" class="btn btn-primary">Yes sure</button>
+                              <button type="submit" form="deleteForm_{{ $partner->id }}" class="btn btn-primary">Yes sure</button>
                               <button type="button" data-bs-dismiss="modal"  class="btn btn-dark"> No thanks </button>
                             </form>
                           </div>

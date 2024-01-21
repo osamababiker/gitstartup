@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\MessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-/** to get all blogs  */
-Route::get('/blogs', [BlogsController::class, 'index']);
-
-/** to get all blogs  */
-Route::get('/blogs/{id}', [BlogsController::class, 'show']);
+/** categories APIs */
+Route::resource('categories', CategoriesController::class);
+/** blogs APIs */
+Route::resource('blogs', BlogsController::class);
+/** partners APIs */
+Route::resource('partners', PartnersController::class);
+/** messages APIs */
+Route::resource('messages', MessagesController::class);

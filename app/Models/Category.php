@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function blogs(){
+        return $this->hasMany(Blog::class, 'sub_of');
+    }
 }
