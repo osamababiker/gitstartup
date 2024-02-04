@@ -26,6 +26,8 @@
                     <tr>
                       <th>name</th>
                       <th>email</th>
+                      <th>Phone</th>
+                      <th>plan</th>
                       <th>message</th>
                       <th>Created at</th>
                       <th>Settings</th>
@@ -36,6 +38,8 @@
                     <tr>
                       <td>{{ $message->name }}</td>
                       <td>{{ $message->email }}</td>
+                      <td>{{ $message->phone }}</td>
+                      <td>{{ $message->plan }}</td>
                       <td>
                         <a type="button" data-bs-toggle="modal" data-bs-target="#messageModal_{{ $message->id }}" href="#"> <i class="ai-messages text-primary"></i> </a>
                       </td>

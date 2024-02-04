@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('email');
             $table->string('phone');
+            $table->string('plan');
             $table->text('message');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
