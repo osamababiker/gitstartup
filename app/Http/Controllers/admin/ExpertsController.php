@@ -50,6 +50,8 @@ class ExpertsController extends Controller
             $resume = $request->file('resume');
             $resume_name = time().'_'. rand(1000, 9999). '.' .$resume->extension();
             $resume->move(public_path('upload/experts'),$resume_name);
+        }else{
+        	$resume_name = "";
         }
 
         $expert->name = $request->name;
