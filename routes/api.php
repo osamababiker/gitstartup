@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\ExpertsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ Route::resource('blogs', BlogsController::class);
 Route::resource('partners', PartnersController::class);
 /** messages APIs */
 Route::resource('messages', MessagesController::class);
+/** experts APIs */
+Route::resource('experts', ExpertsController::class);
