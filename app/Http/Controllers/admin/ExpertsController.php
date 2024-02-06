@@ -36,6 +36,7 @@ class ExpertsController extends Controller
             'position' => 'required|string',
             'resume' => 'nullable',
             'picture' => 'required',
+            'intro' => 'required|string',
             'bio' => 'required|string'
         ]);
 
@@ -57,6 +58,7 @@ class ExpertsController extends Controller
         $expert->name = $request->name;
         $expert->position = $request->position;
         $expert->resume = $resume_name;
+        $expert->intro = $request->intro;
         $expert->bio = $request->bio;
         $expert->picture = $picture_name;
         $expert->save();
@@ -93,7 +95,8 @@ class ExpertsController extends Controller
         $request->validate([
             'name' => 'required|string',
             'position' => 'required|string',
-            'bio' => 'required|string'
+            'bio' => 'required|string',
+            'intro' => 'required|string'
         ]);
         $expert = Expert::findOrFail($id);
         if($request->has('picture')){
@@ -120,6 +123,7 @@ class ExpertsController extends Controller
         $expert->resume = $resume_name;
         $expert->picture = $picture_name;
         $expert->bio = $request->bio;
+        $expert->intro = $request->intro;
         $expert->save();
 
         return redirect()->back()->with('feedback', 'expert has been updated');

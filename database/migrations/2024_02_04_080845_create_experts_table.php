@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('position');
             $table->string('picture');
             $table->string('resume')->nullable();
-            $table->text('bio');
+            $table->text('intro');
+            $table->longText('bio');
 
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

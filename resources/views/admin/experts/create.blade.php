@@ -32,6 +32,10 @@
                     <input type="file" name="resume" class="form-control" id="resume">
                     </div>
                     <div class="mb-3 mb-sm-4">
+                      <label for="intro" class="form-label">expert intro</label>
+                      <textarea name="intro" id="intro" cols="8" rows="8" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3 mb-sm-4">
                       <label for="bio" class="form-label">expert bio</label>
                       <textarea name="bio" id="bio" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                     </div>
