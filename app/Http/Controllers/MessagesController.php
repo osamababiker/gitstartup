@@ -18,6 +18,7 @@ class MessagesController extends Controller
             'company_name' => 'required|string',
             'email' => 'required',
             'phone' => 'required',
+            'plan' => 'required',
             'message' => 'required|string'
         ];
         $validator = Validator::make($request->all(), $rules);
@@ -30,6 +31,7 @@ class MessagesController extends Controller
         $messsage->company_name = $request->company_name;
         $messsage->email = $request->email;
         $messsage->phone = $request->phone;
+        $messsage->plan = $request->plan;
         $messsage->message = $request->message;
         $messsage->save();
 

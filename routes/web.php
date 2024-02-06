@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\StoriesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\MessagesController;
+use App\Http\Controllers\Admin\ExpertsController;
+
 
 
 Route::get('/cache/clear', function () {
@@ -39,6 +41,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
     Route::resource('/partners', PartnersController::class, ['as' => 'admin']);
     /*============== stories route ============== */
     Route::resource('/stories', StoriesController::class, ['as' => 'admin']);
+    /*============== experts route ============== */
+    Route::resource('/experts', ExpertsController::class, ['as' => 'admin']);
     /*============== contacts route ============== */
     Route::resource('/messages', MessagesController::class, ['as' => 'admin']);
     /*============== auth route  ==================*/
