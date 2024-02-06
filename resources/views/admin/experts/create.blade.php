@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-3 mb-sm-4">
                       <label for="bio" class="form-label">expert bio</label>
-                      <textarea name="bio" id="bio" cols="8" rows="8" class="form-control"></textarea>
+                      <textarea name="bio" id="bio" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Save Details</button>
                 </form>
