@@ -11,6 +11,13 @@ use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\MessagesController;
 
 
+Route::get('/cache/clear', function () {
+    \Artisan::call('cache:clear');
+    \Artisan::call('config:cache');
+    \Artisan::call('route:clear');
+   
+    dd("Cache is cleared");
+});
 
 /* ============ site auth route ============== */
 Route::get('/',[AuthController::class, 'showLogin'])->name('login')->middleware('guest');
