@@ -20,6 +20,7 @@
           <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.partners.index') }}"><i class="ai-code-curly fs-5 opacity-60 me-2"></i>Partners</a>
           <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.categories.index') }}"><i class="ai-flag fs-5 opacity-60 me-2"></i>Categories</a>
           <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.experts.index') }}"><i class="ai-flag fs-5 opacity-60 me-2"></i>Experts</a>
+          <a class="nav-link fw-semibold py-2 px-0" href="{{ route('admin.projects.index') }}"><i class="ai-flag fs-5 opacity-60 me-2"></i>Projects</a>
         </nav>
         <nav class="nav flex-column">
           <a class="nav-link fw-semibold py-2 px-0" onclick="logout()" href="#">

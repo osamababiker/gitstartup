@@ -16,7 +16,7 @@ class PartnersController extends Controller
         return view('admin.partners.index',[
             'partners' => Partner::all(),
             'settings' => Settings::first()
-        ]);
+        ]); 
     }
 
     /**

@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\StoriesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\MessagesController;
 use App\Http\Controllers\Admin\ExpertsController;
+use App\Http\Controllers\Admin\MembersController;
+use App\Http\Controllers\Admin\ProjectsController;
 
 
 
@@ -41,8 +43,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function(
     Route::resource('/partners', PartnersController::class, ['as' => 'admin']);
     /*============== stories route ============== */
     Route::resource('/stories', StoriesController::class, ['as' => 'admin']);
+    /*============== projects route ============== */
+    Route::resource('/projects', ProjectsController::class, ['as' => 'admin']);
     /*============== experts route ============== */
     Route::resource('/experts', ExpertsController::class, ['as' => 'admin']);
+    /*============== members route ============== */
+    Route::resource('/members', MembersController::class, ['as' => 'admin']);
     /*============== contacts route ============== */
     Route::resource('/messages', MessagesController::class, ['as' => 'admin']);
     /*============== auth route  ==================*/

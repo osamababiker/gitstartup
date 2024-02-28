@@ -7,6 +7,8 @@ use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\ExpertsController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\MembersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,7 @@ Route::resource('partners', PartnersController::class);
 Route::resource('messages', MessagesController::class);
 /** experts APIs */
 Route::resource('experts', ExpertsController::class);
+/** projects APIs */
+Route::resource('projects', ProjectsController::class);
+/** members APIs */
+Route::resource('members', MembersController::class);

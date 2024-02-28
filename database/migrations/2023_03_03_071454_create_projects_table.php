@@ -16,12 +16,14 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('en_name');
             $table->string('ar_name');
+            $table->integer('progress')->default(0);
+            $table->string('link');
             $table->string('logo')->nullable();
             $table->string('image')->nullable();
             $table->text('en_description');
             $table->text('ar_description');
 
-            $table->text('page_key_words');
+            $table->text('page_key_words'); 
             $table->text('page_description');
 
             $table->unsignedBigInteger('sub_of');
