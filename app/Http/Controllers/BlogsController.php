@@ -22,7 +22,7 @@ class BlogsController extends Controller
 
      /**
      * Display the specified resource.
-     */
+     */ 
     public function show(string $slug){
         $blog = Blog::where('slug', $slug)->with('category')->first();
         return response()->json($blog, 200);
