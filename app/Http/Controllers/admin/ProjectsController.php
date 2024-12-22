@@ -40,8 +40,9 @@ class ProjectsController extends Controller
             'progress' => 'required',
             'link' => 'required|url',
             'sub_of' => 'required',
-            'logo' => 'nullable',
-            'image' => 'nullable',
+            'logo' => 'required',
+            'image' => 'required',
+            'video_url' => 'nullable',
             'en_description' => 'required|string',
             'ar_description' => 'required|string',
             'page_description' => 'required|string',
@@ -53,18 +54,19 @@ class ProjectsController extends Controller
             $logo = $request->file('logo');
             $logo_name = time().'_'. rand(1000, 9999). '.' .$logo->extension();
             $logo->move(public_path('upload/projects'),$logo_name);
-        }
+        }else $logo_name = "";
         if($request->has('image')){
             $image = $request->file('image');
             $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
             $image->move(public_path('upload/projects'),$image_name);
-        }
+        }else $image_name = "";
 
         $project->en_name = $request->en_name;
         $project->ar_name = $request->ar_name;
         $project->progress = $request->progress;
         $project->slug = Str::slug($request->en_name);
         $project->link = $request->link;
+        $project->video_url = $request->video_url;
         $project->sub_of = $request->sub_of;
         $project->en_description = $request->en_description;
         $project->ar_description = $request->ar_description;
@@ -126,6 +128,7 @@ class ProjectsController extends Controller
         $project->ar_name = $request->ar_name;
         $project->progress = $request->progress;
         $project->link = $request->link;
+        $project->video_url = $request->video_url;
         $project->sub_of = $request->sub_of;
         $project->en_description = $request->en_description;
         $project->ar_description = $request->ar_description;

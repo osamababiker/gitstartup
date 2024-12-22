@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('ar_name');
             $table->integer('progress')->default(0);
             $table->string('link');
-            $table->string('logo')->nullable();
-            $table->string('image')->nullable();
+            $table->string('logo');
+            $table->string('image');
+            $table->string('video_url')->nullable();
             $table->text('en_description');
             $table->text('ar_description');
 

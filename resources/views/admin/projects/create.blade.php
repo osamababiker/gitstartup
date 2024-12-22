@@ -48,6 +48,10 @@
                     <input type="file" name="image" class="form-control" id="image">
                     </div>
                     <div class="mb-3 mb-sm-4">
+                    <label for="video_url" class="form-label">project video url</label>
+                    <input type="text" name="video_url" class="form-control" id="video_url" placeholder="Enter project video link">
+                    </div>
+                    <div class="mb-3 mb-sm-4">
                       <label for="en_description" class="form-label">project description (english)</label>
                       <textarea name="en_description" id="en_description" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                     </div>

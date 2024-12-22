@@ -44,7 +44,7 @@
                       <textarea name="ar_content" id="ar_content" cols="8" rows="8" class="form-control tiny-editor"></textarea>
                     </div>
                     <div class="mb-3 mb-sm-4">
-                      <label for="page_description" class="form-label">Page description</label>
+                       <label for="page_description" class="form-label">Page description</label>
                       <textarea name="page_description" id="page_description" cols="8" rows="8" class="form-control"></textarea>
                     </div>
                     <div class="mb-3 mb-sm-4">

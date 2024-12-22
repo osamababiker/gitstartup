@@ -30,6 +30,7 @@
                       <th>link</th>
                       <th>progress</th>
                       <th>logo</th>
+                      <th>video url</th>
                       <th>Settings</th>
                     </tr>
                   </thead>
@@ -43,6 +44,7 @@
                       </td>
                       <td>{{ $project->progress }}</td>
                       <td> <img src="{{ asset('upload/projects/' . $project->logo) }}" width="50" height="50" alt=""> </td>
+                      <td> {{ $project->video_url }} </td>
                       <td>
                         <a  href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"> <i class="ai-edit-alt text-primary"></i> </a>
                         &nbsp;&nbsp;

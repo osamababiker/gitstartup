@@ -11,7 +11,7 @@ class ProjectsController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        $projects = Project::get();
+        $projects = Project::with('category')->get();
         return response()->json($projects, 200);
     }
 
